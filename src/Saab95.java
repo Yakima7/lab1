@@ -1,3 +1,7 @@
+package src;
+
+import src.cars;
+
 import java.awt.*;
 
 public class Saab95 extends cars {
@@ -9,8 +13,11 @@ public class Saab95 extends cars {
         color = Color.red;
         enginePower = 125;
         turboOn = false;
-        modelName = "Saab95";
+        modelName = "src.Saab95";
         stopEngine();
+        direction = compass.North;
+        xcoord = 0;
+        ycoord = 0;
     }
 
     private void setTurboOn() {

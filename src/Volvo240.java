@@ -1,6 +1,10 @@
+package src;
+
+import src.cars;
+
 import java.awt.*;
 
-public class Volvo240 extends cars{
+public class Volvo240 extends cars {
 
     private final static double trimFactor = 1.25;
     
@@ -8,8 +12,11 @@ public class Volvo240 extends cars{
         nrDoors = 4;
         color = Color.black;
         enginePower = 100;
-        modelName = "Volvo240";
+        modelName = "src.Volvo240";
         stopEngine();
+        direction = compass.North;
+        xcoord = 0;
+        ycoord = 0;
     }
 
     private double speedFactor(){
