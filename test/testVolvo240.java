@@ -60,13 +60,58 @@ public class testVolvo240 {
         assert(volvo.ycoord == 0.1 && volvo.xcoord == 0.1);
     }
 
+    @Test
+    public void testGetNrDoors() {
+        int doors = volvo.getNrDoors();
+        assert (doors == 4);
+    }
 
+    @Test
+    public void testGetEnginePower() {
+        double power = volvo.getEnginePower();
+        assert (power == 100);
+    }
 
-    // @Test
-    // public void testGas(){
-    // volvo.gas(0.2);
-    // assert(
+    @Test
+    public void testGetColor() {
+        assert (volvo.getColor() == Color.black);
+    }
 
-    //}
+    @Test
+    public void testSetColor() {
+        volvo.setColor(Color.red);
+        assert (volvo.getColor() == Color.red);
+    }
 
+    @Test
+    public void testStopEngine() {
+        volvo.stopEngine();
+        assert (volvo.currentSpeed == 0);
+    }
+
+    @Test
+    public void testCurrentSpeedUpperLimit() {
+        volvo.incrementSpeed(150);
+        assert (volvo.currentSpeed == 100);
+    }
+
+    @Test
+    public void testCurrentSpeedLowerLimit() {
+        volvo.decrementSpeed(500);
+        assert (volvo.currentSpeed == 0);
+    }
+
+    @Test
+    public void testGas() {
+        volvo.gas(0.2);
+        assert (volvo.currentSpeed == 0.35);
+
+    }
+
+    @Test
+    public void testBrake() {
+        volvo.incrementSpeed(0.2);
+        volvo.brake(0.1);
+        assert (Math.abs(volvo.currentSpeed-0.225) <= 0.01);
+    }
 }

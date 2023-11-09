@@ -102,9 +102,7 @@ public abstract class cars implements Movable {
     if amount is range(double 0, double 1){
         incrementSpeed(amount);
     }
-    }
 
-    // TODO fix this method according to lab pm
     public void brake(double amount){
         decrementSpeed(amount);
     }
