@@ -20,11 +20,11 @@ public class Saab95 extends cars {
         ycoord = 0;
     }
 
-    private void setTurboOn() {
+    public void setTurboOn() {
         turboOn = true;
     }
 
-    private void setTurboOff() {
+    public void setTurboOff() {
         turboOn = false;
     }
 

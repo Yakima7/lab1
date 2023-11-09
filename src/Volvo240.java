@@ -19,7 +19,8 @@ public class Volvo240 extends cars {
         ycoord = 0;
     }
 
-    private double speedFactor(){
+    //ändrade klassen till public för att kunna använda den i testerna
+    public double speedFactor(){
         return enginePower * 0.01 * trimFactor;
     }
 
