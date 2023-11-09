@@ -96,11 +96,12 @@ public abstract class cars implements Movable {
                 break;
         }
     }
-/*
-    // TODO fix this method according to lab pm
+
+
     public void gas(double amount) {
-    if amount is range(double 0, double 1){
-        incrementSpeed(amount);
+        if (amount > 0 && amount < 1) {
+            incrementSpeed(amount);
+        }
     }
 
     public void brake(double amount){
