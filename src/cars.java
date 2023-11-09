@@ -83,6 +83,7 @@ public abstract class cars implements Movable {
         switch (dircar) {
             case North:
                 direction = compass.East;
+                break;
             case East:
                 direction = compass.South;
             case West:
@@ -94,7 +95,9 @@ public abstract class cars implements Movable {
 /*
     // TODO fix this method according to lab pm
     public void gas(double amount) {
+    if amount is range(double 0, double 1){
         incrementSpeed(amount);
+    }
     }
 
     // TODO fix this method according to lab pm
