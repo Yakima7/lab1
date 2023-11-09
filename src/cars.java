@@ -13,13 +13,14 @@ public abstract class cars implements Movable {
     public double xcoord; // X coordinate of the car
     public double ycoord; // Y coordinate of the car
 
-    enum compass {
+    public enum compass {
         North, East, West, South
     }
 
     public int getNrDoors(){
         return nrDoors;
     }
+
     public double getEnginePower(){
         return enginePower;
     }
@@ -86,10 +87,13 @@ public abstract class cars implements Movable {
                 break;
             case East:
                 direction = compass.South;
+                break;
             case West:
                 direction = compass.North;
+                break;
             case South:
                 direction = compass.West;
+                break;
         }
     }
 /*
