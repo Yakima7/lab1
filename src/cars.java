@@ -45,6 +45,16 @@ public abstract class cars implements Movable {
         currentSpeed = 0;
     }
 
+    public abstract double speedFactor();
+
+    public void incrementSpeed(double amount){
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    }
+
+    public void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+    }
+
     public void move(){
        compass dircar = direction;
         switch(dircar) {
@@ -105,8 +115,10 @@ public abstract class cars implements Movable {
     }
 
     public void brake(double amount){
-        decrementSpeed(amount);
+        if (amount > 0 && amount < 1) {
+            decrementSpeed(amount);
+        }
     }
-    */
+
 }
 
