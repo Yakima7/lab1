@@ -114,4 +114,17 @@ public class testSaab95 {
         saab.brake(0.1);
         assert (Math.abs(saab.currentSpeed-0.225) <= 0.01);
     }
+
+    @Test
+    public void testBrakeInterval(){
+        saab.brake(2);
+        assert(saab.currentSpeed == 0.1);
+    }
+
+    @Test
+    public void testGasInterval(){
+        saab.gas(2);
+        assert (saab.currentSpeed == 0.1 );
+
+    }
 }
