@@ -118,4 +118,19 @@ public class testVolvo240 {
         volvo.brake(0.1);
         assert (Math.abs(volvo.currentSpeed-0.225) <= 0.01);
     }
+
+    @Test
+    public void testBrakeInterval(){
+        volvo.brake(2);
+        assert(volvo.currentSpeed == 0.1);
+    }
+
+    @Test
+    public void testGasInterval(){
+        volvo.gas(2);
+        assert (volvo.currentSpeed == 0.1 );
+
+    }
+
+
 }
