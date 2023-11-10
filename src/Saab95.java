@@ -28,7 +28,6 @@ public class Saab95 extends cars {
         turboOn = false;
     }
 
-    //ändrar till public för test
 
     public double speedFactor() {
         double turbo = 1;
