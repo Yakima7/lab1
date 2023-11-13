@@ -9,15 +9,11 @@ public class Saab95 extends cars {
     private boolean turboOn;
 
     public Saab95() {
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-        turboOn = false;
-        modelName = "src.Saab95";
-        stopEngine();
-        direction = compass.North;
-        xcoord = 0;
-        ycoord = 0;
+       super(2,125,0, Color.red,
+               "scr.Saab95", compass.North,0,0);
+    turboOn = false;
+ //modelName = "src.Saab95";
+
     }
 
     public void setTurboOn() {

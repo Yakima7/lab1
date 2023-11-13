@@ -41,7 +41,7 @@ public class testVolvo240 {
     @Test
     public void testMove() {
         volvo.move();
-        assert (volvo.ycoord == 0.1 && volvo.xcoord == 0);
+        assert (volvo.getYcoord() == 0.1 && volvo.getXcoord() == 0);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class testVolvo240 {
         volvo.move();
         volvo.turnRight();
         volvo.move();
-        assert (volvo.ycoord == 0.1 && volvo.xcoord == 0.1);
+        assert (volvo.getYcoord() == 0.1 && volvo.getXcoord() == 0.1);
     }
 
     @Test

@@ -26,32 +26,32 @@ public class testSaab95 {
     @Test
     public void testIncrementSpeed(){
         saab.incrementSpeed(10);
-        assert(saab.currentSpeed == 12.6);
+        assert(saab.getCurrentSpeed() == 12.6);
     }
 
     @Test
     public void decrementSpeed(){
         saab.incrementSpeed(20);
         saab.decrementSpeed(10);
-        assert(Math.abs(saab.currentSpeed - 12.6) <= 0.1);
+        assert(Math.abs(saab.getCurrentSpeed() - 12.6) <= 0.1);
     }
 
     @Test
     public void testMove(){
         saab.move();
-        assert(saab.ycoord == 0.1 && saab.xcoord == 0);
+        assert(saab.getYcoord() == 0.1 && saab.getXcoord() == 0);
     }
 
     @Test
     public void testTurnLeft(){
         saab.turnLeft();
-        assert(saab.direction == cars.compass.West);
+        assert(saab.getDirection() == cars.compass.West);
     }
 
     @Test
     public void testTurnRight(){
         saab.turnRight();
-        assert(saab.direction == cars.compass.East);
+        assert(saab.getDirection() == cars.compass.East);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class testSaab95 {
         saab.move();
         saab.turnRight();
         saab.move();
-        assert(saab.ycoord == 0.1 && saab.xcoord == 0.1);
+        assert(saab.getYcoord() == 0.1 && saab.getXcoord() == 0.1);
     }
     @Test
     public void testGetNrDoors(){
@@ -87,24 +87,24 @@ public class testSaab95 {
     @Test
     public void testStopEngine(){
         saab.stopEngine();
-        assert(saab.currentSpeed == 0);
+        assert(saab.getCurrentSpeed() == 0);
     }
     @Test
     public void testCurrentSpeedUpperLimit(){
         saab.incrementSpeed(150);
-        assert(saab.currentSpeed == 125);
+        assert(saab.getCurrentSpeed() == 125);
     }
 
     @Test
     public void testCurrentSpeedLowerLimit(){
         saab.decrementSpeed(500);
-        assert(saab.currentSpeed == 0);
+        assert(saab.getCurrentSpeed() == 0);
     }
 
     @Test
     public void testGas() {
         saab.gas(0.2);
-        assert (saab.currentSpeed == 0.35);
+        assert (saab.getCurrentSpeed() == 0.35);
 
     }
 
@@ -112,19 +112,19 @@ public class testSaab95 {
     public void testBrake() {
         saab.incrementSpeed(0.2);
         saab.brake(0.1);
-        assert (Math.abs(saab.currentSpeed-0.225) <= 0.01);
+        assert (Math.abs(saab.getCurrentSpeed()-0.225) <= 0.01);
     }
 
     @Test
     public void testBrakeInterval(){
         saab.brake(2);
-        assert(saab.currentSpeed == 0.1);
+        assert(saab.getCurrentSpeed() == 0.1);
     }
 
     @Test
     public void testGasInterval(){
         saab.gas(2);
-        assert (saab.currentSpeed == 0.1 );
+        assert (saab.getCurrentSpeed() == 0.1 );
 
     }
 }
