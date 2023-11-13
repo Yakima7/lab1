@@ -4,17 +4,30 @@ import java.awt.*;
 
 public abstract class cars implements Movable {
 
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
-    public compass direction; // Direction of the car
-    public double xcoord; // X coordinate of the car
-    public double ycoord; // Y coordinate of the car
+    private int nrDoors; // Number of doors on the car
+    private double enginePower; // Engine power of the car
+    private double currentSpeed; // The current speed of the car
+    private Color color; // Color of the car
+    private String modelName; // The car model name
+    private compass direction; // Direction of the car
+    private double xcoord; // X coordinate of the car
+    private double ycoord; // Y coordinate of the car
 
     public enum compass {
         North, East, West, South
+    }
+
+    cars(int nrDoors, double enginePower, double currentSpeed, Color color,
+         String modelName, compass direction, double xcoord, double ycoord){
+
+        this.nrDoors=nrDoors;
+        this.enginePower=enginePower;
+        this.currentSpeed=currentSpeed;
+        this.color=color;
+        this.modelName=modelName;
+        this.direction=compass.North;
+        this.xcoord=0;
+        this.ycoord=0;
     }
 
     public int getNrDoors(){
@@ -31,6 +44,18 @@ public abstract class cars implements Movable {
 
     public Color getColor(){
         return color;
+    }
+
+    public double getYcoord(){
+        return ycoord;
+    }
+
+    public double getXcoord(){
+        return xcoord;
+    }
+
+    public compass getDirection(){
+        return direction;
     }
 
     public void setColor(Color clr){
