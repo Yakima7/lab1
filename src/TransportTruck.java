@@ -43,6 +43,7 @@ public class TransportTruck extends Truck{
                 CarsOnTruck.size() < MaximumLoad){
             CarsOnTruck.add(carToBeLoaded);
         }
+
     }
 
 
@@ -51,5 +52,15 @@ public class TransportTruck extends Truck{
         if (currentAngle==0 && LastCar==carToBeUnloaded){
 
         }
+    }
+
+    @Override public void move(){
+        super.move();
+        for (Car car : CarsOnTruck) {
+            car.setXcoord(this.getXcoord());
+            car.setYcoord(this.getYcoord());
+    }
+
+
     }
 }

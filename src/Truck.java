@@ -17,15 +17,15 @@ public abstract class Truck extends Car{
     }
 
 
-    public void ChangeAngleUp(double numb){
+    public void changeAngleUp(double numb){
         if (getCurrentSpeed() == 0){
-            currentAngle= Math.min(getCurrentAngle() + numb,70);}
+            currentAngle = Math.min(getCurrentAngle() + numb,70);}
 
     }
 
-    public void ChangeAngleDown(double numb){
+    public void changeAngleDown(double numb){
         if (getCurrentSpeed() == 0){
-            currentAngle= Math.max(getCurrentAngle() - numb,0);}
+            currentAngle = Math.max(getCurrentAngle() - numb,0);}
     }
 
 
