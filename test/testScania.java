@@ -16,6 +16,21 @@ public class testScania {
        assert (scania.currentAngle==20);
 
     }
+
+    @Test
+    public void testMove() {
+        scania.startEngine();
+        scania.move();
+        assert (scania.getXcoord() == 0 && scania.getYcoord() == 0.1);
+    }
+
+    @Test
+    public void testMoveAngledUp(){
+        scania.ChangeAngleUp(20);
+        scania.startEngine();
+        scania.move();
+        assert (scania.getXcoord() == 0 && scania.getYcoord() == 0);
+    }
 }
 
 
