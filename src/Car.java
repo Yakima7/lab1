@@ -13,6 +13,8 @@ public abstract class Car implements Movable {
     private double xcoord; // X coordinate of the car
     private double ycoord; // Y coordinate of the car
 
+    private int size;
+
     public enum compass {
         North, East, West, South
     }
@@ -28,6 +30,7 @@ public abstract class Car implements Movable {
         this.currentSpeed=0;
         this.xcoord=0;
         this.ycoord=0;
+        this.size=size;
     }
 
     public int getNrDoors(){
