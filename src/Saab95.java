@@ -1,16 +1,14 @@
 package src;
 
-import src.cars;
-
 import java.awt.*;
 
-public class Saab95 extends cars {
+public class Saab95 extends Car {
 
     private boolean turboOn;
 
     public Saab95() {
-       super(2,125,0, Color.red,
-               "scr.Saab95", compass.North,0,0);
+       super(2,125, Color.red,
+               "scr.Saab95");
     turboOn = false;
  //modelName = "src.Saab95";
 

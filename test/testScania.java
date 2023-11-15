@@ -1,7 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
 import src.Scania;
-import src.cars;
 
 public class testScania {
     private Scania scania;

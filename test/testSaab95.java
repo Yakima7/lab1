@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import src.Saab95;
-import src.cars;
+import src.Car;
 
 import java.awt.*;
 
@@ -45,13 +45,13 @@ public class testSaab95 {
     @Test
     public void testTurnLeft(){
         saab.turnLeft();
-        assert(saab.getDirection() == cars.compass.West);
+        assert(saab.getDirection() == Car.compass.West);
     }
 
     @Test
     public void testTurnRight(){
         saab.turnRight();
-        assert(saab.getDirection() == cars.compass.East);
+        assert(saab.getDirection() == Car.compass.East);
     }
 
     @Test

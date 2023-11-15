@@ -2,7 +2,7 @@ package src;
 
 import java.awt.*;
 
-public abstract class cars implements Movable {
+public abstract class Car implements Movable {
 
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
@@ -17,15 +17,15 @@ public abstract class cars implements Movable {
         North, East, West, South
     }
 
-    cars(int nrDoors, double enginePower, double currentSpeed, Color color,
-         String modelName, compass direction, double xcoord, double ycoord){
+    Car(int nrDoors, double enginePower, Color color,
+        String modelName){
 
         this.nrDoors=nrDoors;
         this.enginePower=enginePower;
-        this.currentSpeed=currentSpeed;
         this.color=color;
         this.modelName=modelName;
         this.direction=compass.North;
+        this.currentSpeed=0;
         this.xcoord=0;
         this.ycoord=0;
     }

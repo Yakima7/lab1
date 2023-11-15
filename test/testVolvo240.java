@@ -1,8 +1,7 @@
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import src.Volvo240;
-import src.cars;
+import src.Car;
 
 import java.awt.*;
 
@@ -47,13 +46,13 @@ public class testVolvo240 {
     @Test
     public void testTurnLeft() {
         volvo.turnLeft();
-        assert (volvo.getDirection() == cars.compass.West);
+        assert (volvo.getDirection() == Car.compass.West);
     }
 
     @Test
     public void testTurnRight() {
         volvo.turnRight();
-        assert (volvo.getDirection() == cars.compass.East);
+        assert (volvo.getDirection() == Car.compass.East);
     }
 
     @Test
