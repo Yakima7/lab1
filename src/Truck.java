@@ -5,8 +5,8 @@ import java.awt.*;
 public abstract class Truck extends Car{
 
     public Truck(int nrDoors, double enginePower, Color color,
-                 String modelName){
-        super(nrDoors, enginePower, color, modelName);
+                 String modelName, int size){
+        super(nrDoors, enginePower, color, modelName, size);
         this.currentAngle=0;
     }
 
@@ -30,7 +30,7 @@ public abstract class Truck extends Car{
 
 
     @Override public void move(){
-        if (0 == currentAngle){
+        if (currentAngle == 0){
             super.move();
         }
     }

@@ -8,7 +8,7 @@ public class Scania extends Truck {
 
     public Scania(){
         super(2,250, Color.red,
-                "src.Scania");
+                "src.Scania", 2);
     }
 
 

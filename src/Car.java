@@ -18,7 +18,7 @@ public abstract class Car implements Movable {
     }
 
     Car(int nrDoors, double enginePower, Color color,
-        String modelName){
+        String modelName, int size){
 
         this.nrDoors=nrDoors;
         this.enginePower=enginePower;
@@ -54,6 +54,10 @@ public abstract class Car implements Movable {
         return xcoord;
     }
 
+    public void setYcoord(double y) { ycoord = y; }
+
+    public void setXcoord(double x) { xcoord = x;}
+
     public compass getDirection(){
         return direction;
     }
@@ -69,6 +73,8 @@ public abstract class Car implements Movable {
     public void stopEngine(){
         currentSpeed = 0;
     }
+
+    public int getSize() {return size;}
 
     public abstract double speedFactor();
 
