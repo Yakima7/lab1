@@ -1,7 +1,8 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import src.Volvo240;
-import src.Car;
+import src.cars;
 
 import java.awt.*;
 
@@ -24,9 +25,9 @@ public class testVolvo240 {
     @Test
     public void testIncrementSpeed() {
         volvo.incrementSpeed(10);
-        assert (volvo.getCurrentSpeed() == 12.6);
+        assert (volvo.currentSpeed == 12.6);
         volvo.incrementSpeed(100);
-        assert (volvo.getCurrentSpeed() == 100);
+        assert (volvo.currentSpeed == 100);
 
     }
 
@@ -34,25 +35,25 @@ public class testVolvo240 {
     public void decrementSpeed() {
         volvo.incrementSpeed(20);
         volvo.decrementSpeed(10);
-        assert (Math.abs(volvo.getCurrentSpeed() - 12.6) <= 0.1);
+        assert (Math.abs(volvo.currentSpeed - 12.6) <= 0.1);
     }
 
     @Test
     public void testMove() {
         volvo.move();
-        assert (volvo.getYcoord() == 0.1 && volvo.getXcoord() == 0);
+        assert (volvo.ycoord == 0.1 && volvo.xcoord == 0);
     }
 
     @Test
     public void testTurnLeft() {
         volvo.turnLeft();
-        assert (volvo.getDirection() == Car.compass.West);
+        assert (volvo.direction == cars.compass.West);
     }
 
     @Test
     public void testTurnRight() {
         volvo.turnRight();
-        assert (volvo.getDirection() == Car.compass.East);
+        assert (volvo.direction == cars.compass.East);
     }
 
     @Test
@@ -60,7 +61,7 @@ public class testVolvo240 {
         volvo.move();
         volvo.turnRight();
         volvo.move();
-        assert (volvo.getYcoord() == 0.1 && volvo.getXcoord() == 0.1);
+        assert (volvo.ycoord == 0.1 && volvo.xcoord == 0.1);
     }
 
     @Test
@@ -89,25 +90,25 @@ public class testVolvo240 {
     @Test
     public void testStopEngine() {
         volvo.stopEngine();
-        assert (volvo.getCurrentSpeed() == 0);
+        assert (volvo.currentSpeed == 0);
     }
 
     @Test
     public void testCurrentSpeedUpperLimit() {
         volvo.incrementSpeed(150);
-        assert (volvo.getCurrentSpeed() == 100);
+        assert (volvo.currentSpeed == 100);
     }
 
     @Test
     public void testCurrentSpeedLowerLimit() {
         volvo.decrementSpeed(500);
-        assert (volvo.getCurrentSpeed() == 0);
+        assert (volvo.currentSpeed == 0);
     }
 
     @Test
     public void testGas() {
         volvo.gas(0.2);
-        assert (volvo.getCurrentSpeed() == 0.35);
+        assert (volvo.currentSpeed == 0.35);
 
     }
 
@@ -115,19 +116,19 @@ public class testVolvo240 {
     public void testBrake() {
         volvo.incrementSpeed(0.2);
         volvo.brake(0.1);
-        assert (Math.abs(volvo.getCurrentSpeed()-0.225) <= 0.01);
+        assert (Math.abs(volvo.currentSpeed-0.225) <= 0.01);
     }
 
     @Test
     public void testBrakeInterval(){
         volvo.brake(2);
-        assert(volvo.getCurrentSpeed() == 0.1);
+        assert(volvo.currentSpeed == 0.1);
     }
 
     @Test
     public void testGasInterval(){
         volvo.gas(2);
-        assert (volvo.getCurrentSpeed() == 0.1 );
+        assert (volvo.currentSpeed == 0.1 );
 
     }
 

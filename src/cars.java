@@ -2,35 +2,19 @@ package src;
 
 import java.awt.*;
 
-public abstract class Car implements Movable {
+public abstract class cars implements Movable {
 
-    private int nrDoors; // Number of doors on the car
-    private double enginePower; // Engine power of the car
-    private double currentSpeed; // The current speed of the car
-    private Color color; // Color of the car
-    private String modelName; // The car model name
-    private compass direction; // Direction of the car
-    private double xcoord; // X coordinate of the car
-    private double ycoord; // Y coordinate of the car
-
-    private int size;
+    public int nrDoors; // Number of doors on the car
+    public double enginePower; // Engine power of the car
+    public double currentSpeed; // The current speed of the car
+    public Color color; // Color of the car
+    public String modelName; // The car model name
+    public compass direction; // Direction of the car
+    public double xcoord; // X coordinate of the car
+    public double ycoord; // Y coordinate of the car
 
     public enum compass {
         North, East, West, South
-    }
-
-    Car(int nrDoors, double enginePower, Color color,
-        String modelName, int size){
-
-        this.nrDoors=nrDoors;
-        this.enginePower=enginePower;
-        this.color=color;
-        this.modelName=modelName;
-        this.direction=compass.North;
-        this.currentSpeed=0;
-        this.xcoord=0;
-        this.ycoord=0;
-        this.size=size;
     }
 
     public int getNrDoors(){
@@ -49,22 +33,6 @@ public abstract class Car implements Movable {
         return color;
     }
 
-    public double getYcoord(){
-        return ycoord;
-    }
-
-    public double getXcoord(){
-        return xcoord;
-    }
-
-    public void setYcoord(double y) { ycoord = y; }
-
-    public void setXcoord(double x) { xcoord = x;}
-
-    public compass getDirection(){
-        return direction;
-    }
-
     public void setColor(Color clr){
         color = clr;
     }
@@ -76,8 +44,6 @@ public abstract class Car implements Movable {
     public void stopEngine(){
         currentSpeed = 0;
     }
-
-    public double getSize() {return size;}
 
     public abstract double speedFactor();
 
@@ -153,7 +119,6 @@ public abstract class Car implements Movable {
             decrementSpeed(amount);
         }
     }
-
 
 }
 
