@@ -14,12 +14,23 @@ public class Workshop<C extends Car> {
         allCarsGarage = (C[]) new Object[size];
     }
 
-
-    public void addCar(C car){
-
-
+    public void getCar(Car car) {
+        workShop.remove(car);
     }
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

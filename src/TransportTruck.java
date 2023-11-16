@@ -17,8 +17,7 @@ public class TransportTruck extends Truck{
 
     ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
 
-    public  ArrayList<Car> getArrayList(){return CarsOnTruck;}
-
+    public ArrayList<Car> getArrayList(){return CarsOnTruck;}
 
     public double speedFactor() {
         return getEnginePower() * 0.005;
@@ -57,10 +56,8 @@ public class TransportTruck extends Truck{
 
     public void UnloadTruck(Car carToBeUnloaded){
         Car LastCar = CarsOnTruck.get(CarsOnTruck.size()-1);
-        if (currentAngle == 0 && LastCar == carToBeUnloaded){
-            CarsOnTruck.remove(CarsOnTruck.size()-1);
-
-
+        if (currentAngle == 70 && LastCar == carToBeUnloaded){
+            carToBeUnloaded.setYcoord(getYcoord()+1);
         }
     }
 
