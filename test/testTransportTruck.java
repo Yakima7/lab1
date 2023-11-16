@@ -18,18 +18,17 @@ public class testTransportTruck {
     carEx = new Volvo240();
     carEx2 = new Volvo240();
     //ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
-    transporttruck.setYcoord(1);
+    /* transporttruck.setYcoord(1);
     transporttruck.setXcoord(1);
     carEx.setYcoord(0);
     carEx.setYcoord(0);
     carEx2.setYcoord(1);
     carEx2.setYcoord(0);
-    transporttruck.angleDown();
-
+    transporttruck.angleDown()
+*/
     }
     //ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
 
-    //transporttruck.setYcoord(2);
 
 
 
