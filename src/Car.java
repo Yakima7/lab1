@@ -77,7 +77,7 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
-    public int getSize() {return size;}
+    public double getSize() {return size;}
 
     public abstract double speedFactor();
 

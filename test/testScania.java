@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import src.Scania;
+import src.Truck;
 
 public class testScania {
     private Scania scania;
@@ -12,7 +13,7 @@ public class testScania {
 
     @Test
     public void testAngleUp(){
-       scania.ChangeAngleUp(20);
+       scania.changeAngleUp(20);
        assert (scania.currentAngle==20);
 
     }
@@ -26,7 +27,7 @@ public class testScania {
 
     @Test
     public void testMoveAngledUp(){
-        scania.ChangeAngleUp(20);
+        scania.changeAngleUp(20);
         scania.startEngine();
         scania.move();
         assert (scania.getXcoord() == 0 && scania.getYcoord() == 0);

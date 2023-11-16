@@ -17,6 +17,8 @@ public class TransportTruck extends Truck{
 
     ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
 
+    public ArrayList<Car> getArrayList(){return CarsOnTruck;}
+
 
     public double speedFactor() {
         return getEnginePower() * 0.005;
@@ -36,9 +38,10 @@ public class TransportTruck extends Truck{
         double TransportTruckXCoord = this.getXcoord();
         double carYCoord = carToBeLoaded.getYcoord();
         double TransportTruckYCoord = this.getYcoord();
-        if (carToBeLoaded instanceof TransportTruck || carToBeLoaded.getSize() > 1){
+        double TheSizeOfCar=carToBeLoaded.getSize();
+        if (carToBeLoaded instanceof TransportTruck || TheSizeOfCar > 2){
         }
-        else if (currentAngle == 70 && Math.abs(carXCoord - TransportTruckXCoord) <= 2
+        else if (currentAngle == 0 && Math.abs(carXCoord - TransportTruckXCoord) <= 2
                 && Math.abs(carYCoord-TransportTruckYCoord) <= 2 &&
                 CarsOnTruck.size() < MaximumLoad){
             CarsOnTruck.add(carToBeLoaded);
@@ -47,13 +50,17 @@ public class TransportTruck extends Truck{
     }
 
 
+    //public boolean EmptySpotCheck(){
+
+
+    //}
+
     public void UnloadTruck(Car carToBeUnloaded){
         Car LastCar = CarsOnTruck.get(CarsOnTruck.size()-1);
         if (currentAngle==0 && LastCar==carToBeUnloaded){
             for(int i=CarsOnTruck.size()-1; i>=0; i--) {
                 CarsOnTruck.remove(CarsOnTruck.size()-1);
-                carToBeUnloaded.setXcoord(getXcoord()+i+1);
-                carToBeUnloaded.setYcoord(getYcoord()+i+1);
+
             }
 
         }
