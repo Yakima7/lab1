@@ -1,23 +1,17 @@
 package src;
 
-import src.cars;
-
 import java.awt.*;
 
-public class Saab95 extends cars {
+public class Saab95 extends Car {
 
     private boolean turboOn;
 
     public Saab95() {
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-        turboOn = false;
-        modelName = "src.Saab95";
-        stopEngine();
-        direction = compass.North;
-        xcoord = 0;
-        ycoord = 0;
+       super(2,125, Color.red,
+               "scr.Saab95", 1);
+    turboOn = false;
+ //modelName = "src.Saab95";
+
     }
 
     public void setTurboOn() {
@@ -32,7 +26,8 @@ public class Saab95 extends cars {
     public double speedFactor() {
         double turbo = 1;
         if (turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+
+        return getEnginePower() * 0.01 * turbo;
     }
 
 }
