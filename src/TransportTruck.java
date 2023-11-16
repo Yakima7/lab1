@@ -17,7 +17,7 @@ public class TransportTruck extends Truck{
 
     ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
 
-    public ArrayList<Car> getArrayList(){return CarsOnTruck;}
+    public  ArrayList<Car> getArrayList(){return CarsOnTruck;}
 
 
     public double speedFactor() {
@@ -58,10 +58,8 @@ public class TransportTruck extends Truck{
     public void UnloadTruck(Car carToBeUnloaded){
         Car LastCar = CarsOnTruck.get(CarsOnTruck.size()-1);
         if (currentAngle == 0 && LastCar == carToBeUnloaded){
-            for(int i=CarsOnTruck.size()-1; i>=0; i--) {
-                CarsOnTruck.remove(CarsOnTruck.size()-1);
+            CarsOnTruck.remove(CarsOnTruck.size()-1);
 
-            }
 
         }
     }

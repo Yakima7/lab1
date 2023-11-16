@@ -10,12 +10,13 @@ public class testTransportTruck {
     private TransportTruck transporttruck;
     private Volvo240 carEx;
     private Volvo240 carEx2;
-    ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
+    private ArrayList<Car> CarsOnTruck;
 
     @Before
     public void init() {transporttruck = new TransportTruck();
     carEx = new Volvo240();
     carEx2 = new Volvo240();
+    CarsOnTruck = new ArrayList<Car>();
     //ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
     transporttruck.setYcoord(1);
     transporttruck.setXcoord(1);
@@ -50,8 +51,8 @@ public class testTransportTruck {
     public void TestLoadTruck(){
         transporttruck.LoadTruck(carEx);
         transporttruck.LoadTruck(carEx2);
-        //ArrayList<Car> TheCars=getArrayList();
-        assert(CarsOnTruck.get(0) == carEx);
+        // ArrayList<Car> TheCars = transporttruck.getArrayList();
+        assert(transporttruck.getArrayList().get(0) == carEx);
 
     }
 
@@ -60,7 +61,7 @@ public class testTransportTruck {
         transporttruck.LoadTruck(carEx);
         transporttruck.LoadTruck(carEx2);
         transporttruck.UnloadTruck(carEx2);
-        assert(CarsOnTruck.get(0) == carEx);
+        assert(transporttruck.getArrayList().get(0) == carEx);
 
     }
 
