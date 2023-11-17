@@ -11,7 +11,6 @@ public class TransportTruck extends Truck{
         super(2, 250, Color.white,
                 "src.TransportTruck", 3);
         MaximumLoad=5;
-
     }
 
     ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
@@ -44,7 +43,6 @@ public class TransportTruck extends Truck{
                 CarsOnTruck.size() < MaximumLoad){
             CarsOnTruck.add(carToBeLoaded);
         }
-
     }
 
 
@@ -61,7 +59,5 @@ public class TransportTruck extends Truck{
             car.setXcoord(this.getXcoord());
             car.setYcoord(this.getYcoord());
     }
-
-
     }
 }
