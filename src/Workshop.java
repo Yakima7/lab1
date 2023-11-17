@@ -1,36 +1,27 @@
 package src;
 
-//Parametrisk polymorfism uppnår the open-closed Principle.
-//Då man kan sätta in vilken typ som helst.
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Workshop {
-    //Ta bort extends? Lämna C till en allmän typ?
-    //Kommer då gälla för alla slags typer, gäller nu för endast Car, inklusive Volvo, Saab... (tror jag)
-    //C blir nu en subtyp till Car och kan då anropa "car-saker" till den och cars subklasser
-    //Workshop<Interger> skulle nu ge statiskt fel, mycket bra!
-    //Typparametern har nu en upper-bound
+public class Workshop<C extends Car> {
 
+    private int MaxCapacity;
 
-    //Skapa en workshop initsierare
-    /*Workshop(int Maxcapacity, ? carTypeAccepted ){this.Maxcapacity=Maxcapacity;
-     this.carTypeAccepted=carTypeAccepted;}  */
+    public Workshop(int MaxCapacity){
+        this.MaxCapacity = MaxCapacity;
+    }
 
-    private int MaxCapacity = 10;
+    private ArrayList<C> workShop = new ArrayList<>(MaxCapacity);
 
+    public ArrayList<C> getArrayList(){return workShop;}
 
-    private List<Car> workShop = new ArrayList<>(MaxCapacity);
-
-    public List<Car> getArrayList(){return workShop;}
-
-    public void turnInCar(Car car) {
+    public void turnInCar(C car) {
        if (workShop.size() < MaxCapacity){
         workShop.add(car);}
     }
 
-    public void getCar(Car car) {
+    public void getCar(C car) {
         workShop.remove(car);
     }
 }
