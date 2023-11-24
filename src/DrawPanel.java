@@ -10,7 +10,8 @@ import javax.swing.*;
 public class DrawPanel extends JPanel{
 
     // Just a single image, TODO: Generalize
-    BufferedImage volvoImage;
+    BufferedImage carImage;
+
     // To keep track of a single cars position
     Point carPoint = new Point();
 
@@ -33,7 +34,9 @@ public class DrawPanel extends JPanel{
 
             // Rmember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("src/pics/Volvo240.jpg"));
+            carImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
+            carImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
+            carImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania240.jpg"));
         } catch (IOException ex)
         {
             ex.printStackTrace();
@@ -46,6 +49,6 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(volvoImage, carPoint.x, carPoint.y, null); // see javadoc for more info on the parameters
+        g.drawImage(carImage, carPoint.x, carPoint.y, null); // see javadoc for more info on the parameters
     }
 }

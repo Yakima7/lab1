@@ -23,8 +23,8 @@ public class testTransportTruck {
 
     @Test
     public void TestAngleUp(){
-        transporttruck.angleUp();
-        assert (transporttruck.currentAngle==70);
+        transporttruck.setRampUp();
+        assert (!transporttruck.getRampStatus());
 
     }
 

@@ -6,11 +6,13 @@ import java.util.*;
 public class TransportTruck extends Car{
 
     int MaximumLoad;
+    private boolean rampDown;
 
     public TransportTruck(){
         super(2, 250, Color.white,
                 "src.TransportTruck", 3);
         MaximumLoad=5;
+        rampDown = false;
     }
 
     ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
@@ -27,6 +29,10 @@ public class TransportTruck extends Car{
 
     public void setRampDown(){
         rampDown = true;
+    }
+
+    public boolean getRampStatus(){
+        return rampDown;
     }
 
 
@@ -48,16 +54,18 @@ public class TransportTruck extends Car{
 
     public void UnloadTruck(Car carToBeUnloaded){
         Car LastCar = CarsOnTruck.get(CarsOnTruck.size()-1);
-        if (currentAngle == 70 && LastCar == carToBeUnloaded){
+        if (rampDown && LastCar == carToBeUnloaded){
             carToBeUnloaded.setYcoord(getYcoord()+1);
         }
     }
 
     @Override public void move(){
+        if (!rampDown){
         super.move();
         for (Car car : CarsOnTruck) {
             car.setXcoord(this.getXcoord());
             car.setYcoord(this.getYcoord());
+        }
     }
     }
 }
