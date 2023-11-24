@@ -38,7 +38,7 @@ public class TransportTruck extends Car{
         double TheSizeOfCar=carToBeLoaded.getSize();
         if (carToBeLoaded instanceof TransportTruck || TheSizeOfCar > 2){
         }
-        else if (currentAngle == 70 && Math.abs(carXCoord - TransportTruckXCoord) <= 2
+        else if (rampDown && Math.abs(carXCoord - TransportTruckXCoord) <= 2
                 && Math.abs(carYCoord-TransportTruckYCoord) <= 2 &&
                 CarsOnTruck.size() < MaximumLoad){
             CarsOnTruck.add(carToBeLoaded);

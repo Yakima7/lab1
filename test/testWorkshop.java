@@ -8,22 +8,18 @@ public class testWorkshop {
     private Volvo240 carVolvo;
     private Volvo240 carVolvo2;
     private Saab95 carSaab;
-    private Scania carSaab2;
-    private TransportTruck exTransportTruck;
+    private Scania carScania;
     private Workshop<Volvo240> volvoWorkshop;
-    private Workshop<Truck> truckWorkshop;
     private Workshop<Car> otherWorkshop;
 
     @Before
     public void init(){
         workshop = new Workshop<>(10);
         volvoWorkshop = new Workshop<>(10);
-        truckWorkshop = new Workshop<>(3);
         carVolvo = new Volvo240();
         carVolvo2 = new Volvo240();
         carSaab= new Saab95();
-        carSaab2 = new Scania();
-        exTransportTruck = new TransportTruck();
+        carScania = new Scania();
         otherWorkshop = new Workshop<>(3);
 
     }
@@ -31,14 +27,14 @@ public class testWorkshop {
 
     @Test
     public void testTurnInCar(){
-        workshop.turnInCar(carSaab2);
-        assert(workshop.getArrayList().get(0) == carSaab2);
+        workshop.turnInCar(carScania);
+        assert(workshop.getArrayList().get(0) == carScania);
 
     }
     @Test
-    public void testTurnInCarTruckWorkshop(){
-        truckWorkshop.turnInCar(carSaab2);
-        assert(truckWorkshop.getArrayList().get(0) == carSaab2);
+    public void testTurnInCarVolvoWorkshop(){
+        volvoWorkshop.turnInCar(carVolvo);
+        assert(volvoWorkshop.getArrayList().get(0) == carVolvo);
 
     }
 
@@ -46,17 +42,17 @@ public class testWorkshop {
     @Test
     public void testGetCar(){
         workshop.turnInCar(carSaab);
-        workshop.turnInCar(carSaab2);
+        workshop.turnInCar(carScania);
         workshop.getCar(carSaab);
-        assert(workshop.getArrayList().get(0) == carSaab2);
+        assert(workshop.getArrayList().get(0) == carScania);
     }
 
     @Test
-    public void testGetTruck(){
-        truckWorkshop.turnInCar(carSaab2);
-        truckWorkshop.turnInCar(exTransportTruck);
-        truckWorkshop.getCar(carSaab2);
-        assert(truckWorkshop.getArrayList().get(0) == exTransportTruck);
+    public void testGetVolvo(){
+        volvoWorkshop.turnInCar(carVolvo);
+        volvoWorkshop.turnInCar(carVolvo2);
+        volvoWorkshop.getCar(carVolvo);
+        assert(volvoWorkshop.getArrayList().get(0) == carVolvo2);
     }
 
     @Test
@@ -64,7 +60,7 @@ public class testWorkshop {
         otherWorkshop.turnInCar(carVolvo);
         otherWorkshop.turnInCar(carVolvo2);
         otherWorkshop.turnInCar(carSaab);
-        otherWorkshop.turnInCar(carSaab2);
+        otherWorkshop.turnInCar(carScania);
 
         assert(otherWorkshop.getArrayList().size() == 3);
 
