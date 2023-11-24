@@ -3,7 +3,7 @@ package src;
 import java.awt.*;
 import java.util.*;
 
-public class TransportTruck extends Truck{
+public class TransportTruck extends Car{
 
     int MaximumLoad;
 
@@ -21,12 +21,12 @@ public class TransportTruck extends Truck{
         return getEnginePower() * 0.005;
     }
 
-    public void angleUp(){
-        changeAngleUp(70);
+    public void setRampUp(){
+        rampDown = false;
     }
 
-    public void angleDown(){
-        changeAngleDown(70);
+    public void setRampDown(){
+        rampDown = true;
     }
 
 

@@ -17,17 +17,8 @@ public class testTransportTruck {
     public void init() {transporttruck = new TransportTruck();
     carEx = new Volvo240();
     carEx2 = new Volvo240();
-    //ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
-    /* transporttruck.setYcoord(1);
-    transporttruck.setXcoord(1);
-    carEx.setYcoord(0);
-    carEx.setYcoord(0);
-    carEx2.setYcoord(1);
-    carEx2.setYcoord(0);
-    transporttruck.angleDown()
-*/
     }
-    //ArrayList<Car> CarsOnTruck = new ArrayList<Car>();
+
 
 
 
@@ -41,8 +32,8 @@ public class testTransportTruck {
 
     @Test
     public void TestAngleDown(){
-        transporttruck.angleDown();
-        assert (transporttruck.currentAngle==0);
+        transporttruck.setRampDown();
+        assert (transporttruck.getRampStatus());
 
     }
 
@@ -57,6 +48,7 @@ public class testTransportTruck {
 
     @Test
     public void TestUnLoadTruck(){
+        transporttruck.setRampDown();
         transporttruck.LoadTruck(carEx);
         transporttruck.LoadTruck(carEx2);
         transporttruck.UnloadTruck(carEx2);
