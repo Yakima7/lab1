@@ -2,6 +2,7 @@ package src;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -10,7 +11,7 @@ import javax.swing.*;
 public class DrawPanel extends JPanel{
 
     // Just a single image, TODO: Generalize
-    BufferedImage carImage;
+    ArrayList<BufferedImage> carImage = new ArrayList<>() ;
 
     // To keep track of a single cars position
     Point carPoint = new Point();
@@ -34,9 +35,9 @@ public class DrawPanel extends JPanel{
 
             // Remember to right-click src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            carImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
-            carImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
-            carImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania240.jpg"));
+            carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
+            carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
+            carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg")));
         } catch (IOException ex)
         {
             ex.printStackTrace();
