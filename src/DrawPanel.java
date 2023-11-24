@@ -32,7 +32,7 @@ public class DrawPanel extends JPanel{
             // everything is in the same main folder.
             // volvoImage = ImageIO.read(new File("Volvo240.jpg"));
 
-            // Rmember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
+            // Remember to right-click src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
             carImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
             carImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
@@ -49,6 +49,8 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(carImage, carPoint.x, carPoint.y, null); // see javadoc for more info on the parameters
+        for(BufferedImage image : carImage){
+            g.drawImage(image, carPoint.x, carPoint.y, null); // see javadoc for more info on the parameters
+        }
     }
 }
