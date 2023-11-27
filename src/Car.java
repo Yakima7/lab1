@@ -10,8 +10,8 @@ public abstract class Car implements Movable {
     private Color color; // Color of the car
     private String modelName; // The car model name
     private compass direction; // Direction of the car
-    private double xcoord; // X coordinate of the car
-    private double ycoord; // Y coordinate of the car
+    private int xcoord; // X coordinate of the car
+    private int ycoord; // Y coordinate of the car
 
     private int size;
 
@@ -20,7 +20,7 @@ public abstract class Car implements Movable {
     }
 
     Car(int nrDoors, double enginePower, Color color,
-        String modelName, int size){
+        String modelName, int size, int xcoord, int ycoord){
 
         this.nrDoors=nrDoors;
         this.enginePower=enginePower;
@@ -31,6 +31,8 @@ public abstract class Car implements Movable {
         this.xcoord=0;
         this.ycoord=0;
         this.size=size;
+        this.xcoord=xcoord;
+        this.ycoord=ycoord;
     }
 
     public int getNrDoors(){
@@ -49,17 +51,17 @@ public abstract class Car implements Movable {
         return color;
     }
 
-    public double getYcoord(){
+    public int getYcoord(){
         return ycoord;
     }
 
-    public double getXcoord(){
+    public int getXcoord(){
         return xcoord;
     }
 
-    public void setYcoord(double y) { ycoord = y; }
+    public void setYcoord(int y) { ycoord = y; }
 
-    public void setXcoord(double x) { xcoord = x;}
+    public void setXcoord(int x) { xcoord = x;}
 
     public compass getDirection(){
         return direction;

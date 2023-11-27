@@ -10,20 +10,38 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
+
     // Just a single image, TODO: Generalize
     ArrayList<BufferedImage> carImage = new ArrayList<>() ;
 
     // To keep track of a single cars position
-    Point carPoint = new Point();
+
+    Point saabPoint = new Point(0,0);
+    Point volvoPoint = new Point(0,100);
+    Point scaniaPoint = new Point(0,200);
+
+    ArrayList<Point> carPointList = new ArrayList<>();
+
 
     // TODO: Make this general for all cars
-    void moveit(int x, int y){
-        carPoint.x = x;
-        carPoint.y = y;
+    void moveit(int x, int y, String modelName){
+        if(modelName.equals("Volvo240")) {
+            volvoPoint.x = x;
+            volvoPoint.y = y;
+        }
+        else if(modelName.equals("Saab95")){
+            saabPoint.x = x;
+            saabPoint.y = y;
+        }
+        else if(modelName.equals("Scania")){
+            scaniaPoint.x = x;
+            scaniaPoint.y = y;
+        }
     }
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
+
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
@@ -38,6 +56,9 @@ public class DrawPanel extends JPanel{
             carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
             carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
             carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg")));
+
+
+
         } catch (IOException ex)
         {
             ex.printStackTrace();
@@ -51,7 +72,18 @@ public class DrawPanel extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for(BufferedImage image : carImage){
-            g.drawImage(image, carPoint.x, carPoint.y, null); // see javadoc for more info on the parameters
+            for(Point point : carPointList){
+            g.drawImage(image, point.x, point.y, null); // see javadoc for more info on the parameters
+
+                //TODO: jag testar saker :)
+                if (point.x<0 || point.x>800 || point.y<0 || point.y>800){
+
+                    car.stopEngine();
+                    volvo240.turnLeft();
+                    volvo240.turnLeft();
+                    volvo240.startEngine();
+                }
+            }
         }
     }
 }
