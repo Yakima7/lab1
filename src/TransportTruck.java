@@ -10,7 +10,7 @@ public class TransportTruck extends Car{
 
     public TransportTruck(){
         super(2, 250, Color.white,
-                "src.TransportTruck", 3);
+                "src.TransportTruck", 3, 0, 0);
         MaximumLoad=5;
         rampDown = false;
     }

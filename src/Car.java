@@ -28,8 +28,6 @@ public abstract class Car implements Movable {
         this.modelName=modelName;
         this.direction=compass.North;
         this.currentSpeed=0;
-        this.xcoord=0;
-        this.ycoord=0;
         this.size=size;
         this.xcoord=xcoord;
         this.ycoord=ycoord;
