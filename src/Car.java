@@ -65,6 +65,17 @@ public abstract class Car implements Movable {
         return direction;
     }
 
+    public String getModelName(){return modelName;}
+
+    public void turnAround(){
+        stopEngine();
+        turnLeft();
+        turnLeft();
+        startEngine();
+    }
+
+
+
     public void setColor(Color clr){
         color = clr;
     }

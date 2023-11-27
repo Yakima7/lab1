@@ -48,7 +48,7 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.getXcoord());
                 int y = (int) Math.round(car.getYcoord());
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(x, y, );
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -61,5 +61,20 @@ public class CarController {
         for (Car car : cars) {
             car.gas(gas);
         }
+    }
+
+    //TODO: kan va helt fel
+
+    void brake(int amount) {
+        double brake = ((double) amount)/100;
+        for (Car car : cars){
+            car.brake(brake);
+        }
+    }
+    //TODO: jag testar saker :)
+                if (point.x<0 || point.x>800 || point.y<0 || point.y>800){
+                    car.turnAround();
+
+
     }
 }
