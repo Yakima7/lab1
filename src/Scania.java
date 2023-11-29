@@ -6,7 +6,7 @@ public class Scania extends Car {
 
     public Scania () {
         super(2,250, Color.red,
-                "Scania", 2,0, 100);
+                "Scania", 2,0, 300);
         this.currentAngle = 0;
     }
 
