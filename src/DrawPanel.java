@@ -56,8 +56,6 @@ public class DrawPanel extends JPanel{
             carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
             carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg")));
 
-
-
         } catch (IOException ex)
         {
             ex.printStackTrace();
@@ -70,9 +68,9 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for(BufferedImage image : carImage){
-            for(Point point : carPointList){
-            g.drawImage(image, point.x, point.y, null); // see javadoc for more info on the parameters
+            g.drawImage(carImage.get(0), volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
+            g.drawImage(carImage.get(1), saabPoint.x, saabPoint.y, null); // see javadoc for more info on the parameters
+            g.drawImage(carImage.get(2), scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters
 
 
     }

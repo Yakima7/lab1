@@ -33,6 +33,8 @@ public class CarController {
         CarController cc = new CarController();
 
         cc.cars.add(new Volvo240());
+        cc.cars.add(new Saab95());
+        cc.cars.add(new Scania());
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -47,10 +49,14 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
+                //int xCoord=car.getXcoord();
+                int yCoord=car.getYcoord();
+                if ( yCoord<0 || yCoord>500){
+                    car.turnAround();}
                 car.move();
                 int x = (int) Math.round(car.getXcoord());
                 int y = (int) Math.round(car.getYcoord());
-                frame.drawPanel.moveit(x, y, );
+                frame.drawPanel.moveit(x, y, car.getModelName());
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }

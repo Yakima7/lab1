@@ -32,6 +32,8 @@ public class CarView extends JFrame{
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
+    JSpinner angleSpinner = new JSpinner();
+    int angleAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
 
@@ -73,6 +75,18 @@ public class CarView extends JFrame{
         gasSpinner.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 gasAmount = (int) ((JSpinner)e.getSource()).getValue();
+            }
+        });
+
+        SpinnerModel spinnerModelAngle =
+                new SpinnerNumberModel(0, //initial value
+                        0, //min
+                        70, //max
+                        1);//step
+        angleSpinner = new JSpinner(spinnerModel);
+        angleSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                angleAmount = (int) ((JSpinner)e.getSource()).getValue();
             }
         });
 
@@ -120,6 +134,47 @@ public class CarView extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e){carC.brake(gasAmount);}
 
+        });
+
+        turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOn(saab95);
+            }
+        });
+
+        turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.turboOff(saab95);
+            }
+        });
+
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.liftBed(scania, angleAmount);
+            }
+        });
+
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.lowerBed(scania, angleAmount);
+            }
+        });
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.start();
+            }
+        });
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                carC.stop();
+            }
         });
 
         // Make the frame pack all it's components by respecting the sizes if possible.
