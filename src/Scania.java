@@ -10,20 +10,20 @@ public class Scania extends Car {
         this.currentAngle = 0;
     }
 
-    public double currentAngle;
+    public int currentAngle;
 
-    public double getCurrentAngle(){
+    public int getCurrentAngle(){
         return currentAngle;
     }
 
 
-    public void changeAngleUp(double numb){
+    public void changeAngleUp(int numb){
         if (getCurrentSpeed() == 0){
             currentAngle = Math.min(getCurrentAngle() + numb,70);}
 
     }
 
-    public void changeAngleDown(double numb){
+    public void changeAngleDown(int numb){
         if (getCurrentSpeed() == 0){
             currentAngle = Math.max(getCurrentAngle() - numb,0);}
     }

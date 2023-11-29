@@ -16,11 +16,10 @@ public class DrawPanel extends JPanel{
 
     // To keep track of a single cars position
 
-    Point saabPoint = new Point(0,0);
-    Point volvoPoint = new Point(0,100);
-    Point scaniaPoint = new Point(0,200);
+    Point volvoPoint = new Point(0,400);
+    Point saabPoint = new Point(0,200);
+    Point scaniaPoint = new Point(0,300);
 
-    ArrayList<Point> carPointList = new ArrayList<>();
 
 
     // TODO: Make this general for all cars
