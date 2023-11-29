@@ -16,9 +16,9 @@ public class DrawPanel extends JPanel{
 
     // To keep track of a single cars position
 
-    Point volvoPoint = new Point(0,400);
-    Point saabPoint = new Point(0,200);
-    Point scaniaPoint = new Point(0,300);
+    Point volvoPoint = new Point();
+    Point saabPoint = new Point();
+    Point scaniaPoint = new Point();
 
 
 
@@ -71,7 +71,5 @@ public class DrawPanel extends JPanel{
             g.drawImage(carImage.get(0), volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
             g.drawImage(carImage.get(1), saabPoint.x, saabPoint.y, null); // see javadoc for more info on the parameters
             g.drawImage(carImage.get(2), scaniaPoint.x, scaniaPoint.y, null); // see javadoc for more info on the parameters
-
-
     }
 }

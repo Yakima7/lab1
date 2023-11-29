@@ -79,7 +79,7 @@ public class CarController {
     }
 
     void turboOn(Saab95 car){
-        car.setTurboOn();
+        saab95.setTurboOn();
     }
 
     void turboOff(Saab95 car){
@@ -88,12 +88,10 @@ public class CarController {
 
     void liftBed(Scania car, int angle){
         car.changeAngleUp(angle);
-
     }
 
     void lowerBed(Scania car, int angle){
         car.changeAngleDown(angle);
-
     }
 
     void start(){

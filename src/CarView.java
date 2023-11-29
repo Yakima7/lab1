@@ -30,11 +30,15 @@ public class CarView extends JFrame{
     JPanel controlPanel = new JPanel();
 
     JPanel gasPanel = new JPanel();
+
+    JPanel anglePanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
     JSpinner angleSpinner = new JSpinner();
     int angleAmount = 0;
-    JLabel gasLabel = new JLabel("Amount of gas");
+    JLabel gasLabel = new JLabel("Gas");
+
+    JLabel angleLabel = new JLabel("Angle");
 
 
 
@@ -83,16 +87,23 @@ public class CarView extends JFrame{
                         0, //min
                         70, //max
                         1);//step
-        angleSpinner = new JSpinner(spinnerModel);
+        angleSpinner = new JSpinner(spinnerModelAngle);
         angleSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                angleAmount = (int) ((JSpinner)e.getSource()).getValue();
+            public void stateChanged(ChangeEvent a) {
+                angleAmount = (int) ((JSpinner)a.getSource()).getValue();
             }
         });
 
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
+
+
+        anglePanel.setLayout(new BorderLayout());
+        anglePanel.add(angleLabel, BorderLayout.PAGE_START);
+        anglePanel.add(angleSpinner, BorderLayout.PAGE_END);
+
+        this.add(anglePanel);
 
         this.add(gasPanel);
 
@@ -104,7 +115,9 @@ public class CarView extends JFrame{
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
-        controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
+        controlPanel.setPreferredSize(new Dimension((X/2), 200));
+        //controlPanel.add(angleLabel,6);
+        //controlPanel.add(angleSpinner, 7);
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
 
