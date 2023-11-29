@@ -8,7 +8,7 @@ public class Saab95 extends Car {
 
     public Saab95() {
        super(2,125, Color.red,
-               "Saab95", 1, 0,100);
+               "Saab95", 1, 0,300);
     turboOn = false;
  //modelName = "src.Saab95";
 

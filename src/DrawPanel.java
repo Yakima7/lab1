@@ -75,15 +75,6 @@ public class DrawPanel extends JPanel{
             for(Point point : carPointList){
             g.drawImage(image, point.x, point.y, null); // see javadoc for more info on the parameters
 
-                //TODO: jag testar saker :)
-                if (point.x<0 || point.x>800 || point.y<0 || point.y>800){
 
-                    car.stopEngine();
-                    volvo240.turnLeft();
-                    volvo240.turnLeft();
-                    volvo240.startEngine();
-                }
-            }
-        }
     }
 }

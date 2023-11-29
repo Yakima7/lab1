@@ -63,18 +63,39 @@ public class CarController {
         }
     }
 
-    //TODO: kan va helt fel
-
     void brake(int amount) {
         double brake = ((double) amount)/100;
         for (Car car : cars){
             car.brake(brake);
         }
     }
-    //TODO: jag testar saker :)
-                if (point.x<0 || point.x>800 || point.y<0 || point.y>800){
-                    car.turnAround();
 
+    void turboOn(Saab95 car){
+        car.setTurboOn();
+    }
 
+    void turboOff(Saab95 car){
+        car.setTurboOff();
+    }
+
+    void liftBed(Scania car, int angle){
+        car.changeAngleUp(angle);
+
+    }
+
+    void lowerBed(Scania car, int angle){
+        car.changeAngleDown(angle);
+
+    }
+
+    void start(){
+        for (Car car : cars){
+            car.startEngine();
+        }
+    }
+    void stop(){
+        for (Car car : cars){
+            car.stopEngine();
+        }
     }
 }
