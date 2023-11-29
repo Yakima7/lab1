@@ -142,7 +142,6 @@ public class CarView extends JFrame{
             }
         });
 
-        // TODO: lita inte på detta /m
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){carC.brake(gasAmount);}
