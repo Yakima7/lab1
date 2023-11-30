@@ -26,7 +26,7 @@ public abstract class Car implements Movable {
         this.enginePower=enginePower;
         this.color=color;
         this.modelName=modelName;
-        this.direction=compass.North;
+        this.direction=compass.East;
         this.currentSpeed=0;
         this.size=size;
         this.xcoord=xcoord;
