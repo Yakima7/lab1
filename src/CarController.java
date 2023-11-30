@@ -15,9 +15,6 @@ public class CarController {
 
     // member fields:
 
-    Volvo240 volvo240 = new Volvo240();
-    Saab95 saab95 = new Saab95();
-    Scania scania = new Scania();
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
     // The timer is started with an listener (see below) that executes the statements
@@ -34,7 +31,6 @@ public class CarController {
     public static void main(String[] args) {
         // Instance of this class
         CarController cc = new CarController();
-
 
         cc.cars.add(new Volvo240());
         cc.cars.add(new Saab95());
@@ -82,8 +78,9 @@ public class CarController {
         }
     }
 
-    void turboOn(Saab95 car){
-        saab95.setTurboOn();
+    void turboOn(){
+        Saab95 saab = (Saab95) cars.get(1);
+        saab.setTurboOn();
     }
 
     void turboOff(){
@@ -96,8 +93,9 @@ public class CarController {
         scania.changeAngleUp(angle);
     }
 
-    void lowerBed(Scania car, int angle){
-        car.changeAngleDown(angle);
+    void lowerBed(int angle){
+        Scania scania = (Scania) cars.get(2);
+        scania.changeAngleDown(angle);
     }
 
     void start(){

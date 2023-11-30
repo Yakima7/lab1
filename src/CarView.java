@@ -22,8 +22,6 @@ public class CarView extends JFrame{
     // The controller member
     CarController carC;
 
-    Saab95 saab95 = new Saab95();
-    Scania scania = new Scania();
 
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
