@@ -90,8 +90,9 @@ public class CarController {
         saab95.setTurboOff();
     }
 
-    void liftBed(Scania car, int angle){
-        car.changeAngleUp(angle);
+    void liftBed(int angle){
+        Scania scania = (Scania) cars.get(2);
+        scania.changeAngleUp(angle);
     }
 
     void lowerBed(Scania car, int angle){
