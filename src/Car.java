@@ -68,10 +68,10 @@ public abstract class Car implements Movable {
     public String getModelName(){return modelName;}
 
     public void turnAround(){
-        stopEngine();
+        //stopEngine();
         turnLeft();
         turnLeft();
-        startEngine();
+        //startEngine();
     }
 
 

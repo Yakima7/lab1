@@ -49,9 +49,9 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
-                //int xCoord=car.getXcoord();
+                int xCoord=car.getXcoord();
                 int yCoord=car.getYcoord();
-                if ( yCoord<0 || yCoord>500){
+                if ( yCoord<0 || yCoord>500 || xCoord<0 || xCoord>700 ){
                     car.turnAround();}
                 car.move();
                 int x = (int) Math.round(car.getXcoord());
