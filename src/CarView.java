@@ -151,28 +151,28 @@ public class CarView extends JFrame{
         turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turboOn(saab95);
+                carC.turboOn();
             }
         });
 
         turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.turboOff(saab95);
+                carC.turboOff();
             }
         });
 
         liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.liftBed(scania, angleAmount);
+                carC.liftBed(angleAmount);
             }
         });
 
         lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.lowerBed(scania, angleAmount);
+                carC.lowerBed(angleAmount);
             }
         });
 

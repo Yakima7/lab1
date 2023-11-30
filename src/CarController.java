@@ -87,7 +87,8 @@ public class CarController {
     }
 
     void turboOff(){
-        saab95.setTurboOff();
+        Saab95 saab = (Saab95) cars.get(1);
+        saab.setTurboOff();
     }
 
     void liftBed(int angle){
