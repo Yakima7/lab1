@@ -6,18 +6,17 @@ import java.util.ArrayList;
 
 /*
 * This class represents the Controller part in the MVC pattern.
-* Its responsibilities are to listen to the View and responds in a appropriate manner by
+* Its responsibilities are to listen to the View and responds in an appropriate manner by
 * modifying the model state and the updating the view.
  */
 
 public class CarController {
 
-
     // member fields:
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
-    // The timer is started with an listener (see below) that executes the statements
+    // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
 
@@ -56,7 +55,7 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.getXcoord());
                 int y = (int) Math.round(car.getYcoord());
-                frame.drawPanel.moveit(x, y, car.getModelName());
+                updateC.moveit(x, y, car.getModelName());
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
