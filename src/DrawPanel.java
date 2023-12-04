@@ -10,6 +10,7 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
+    UpdateCoordinates updateC;
 
     ArrayList<BufferedImage> carImage = new ArrayList<>() ;
 

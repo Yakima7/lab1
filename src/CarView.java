@@ -19,6 +19,7 @@ public class CarView extends JFrame{
     private static final int Y = 800;
 
     // The controller member
+    ButtonMethods buttonM;
     CarController carC;
 
 
@@ -56,7 +57,6 @@ public class CarView extends JFrame{
     }
 
     // Sets everything in place and fits everything
-    // TODO: Take a good look and make sure you understand how these methods and components work
     private void initComponents(String title) {
 
         this.setTitle(title);
