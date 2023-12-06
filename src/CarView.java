@@ -29,9 +29,9 @@ public class CarView extends JFrame{
 
     JPanel anglePanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
-    int gasAmount = 0;
+
     JSpinner angleSpinner = new JSpinner();
-    int angleAmount = 0;
+
     JLabel gasLabel = new JLabel("Gas");
 
     JLabel angleLabel = new JLabel("Angle");

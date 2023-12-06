@@ -19,14 +19,14 @@ public class CarController {
     private final int delay = 50;
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
+    //private Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+    World world;
 
     ArrayList<Car> cars = new ArrayList<>();
 
-    public CarController(CarView frame){
+    public CarController() {
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
@@ -59,13 +59,73 @@ public ArrayList<Car> getTheCars(){
     ChangeListener createGasSpinnerListener(){
 
     }
-    ActionListener createGasButtonListener(){
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                World.gas(gasAmount);
+
+    ChangeListener createAngleSpinnerListener() {
+        return new ChangeListener() {
+            public void stateChanged(ChangeEvent a) {
+                angleAmount = (int) ((JSpinner) a.getSource()).getValue();
             }
         };
     }
 
+    ActionListener createGasButtonListener() {
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.gas(gasAmount);
+            }
+        };
+    }
+
+    ActionListener createBrakeButtonListener(){
+        return new ActionListener() {
+            @Override
+            public void actionPerformed (ActionEvent e){world.brake(gasAmount);}
+        };
+    }
+
+    ActionListener createTurboOnButtonListener(){
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {world.turboOn();}
+            };
+        }
+
+        ActionListener createTurboOffButtonListener(){
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {world.turboOff();}
+            };
+        }
+
+        ActionListener createLiftBedButtonListener(){
+                return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {world.liftBed(angleAmount);}
+            };
+        }
+
+        ActionListener createLowerBedButtonListener(){
+    return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.lowerBed(angleAmount);}
+            };
+        }
+
+        ActionListener createStartButtonListener(){
+    return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {world.start();}
+            };
+        }
+
+        ActionListener createStopButtonListener(){
+    return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {world.stop();}
+            };
+        }
 }
+
+
