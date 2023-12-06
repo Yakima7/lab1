@@ -28,6 +28,7 @@ public class CarView extends JFrame{
     JPanel gasPanel = new JPanel();
 
     JPanel anglePanel = new JPanel();
+
     JSpinner gasSpinner = new JSpinner();
 
     JSpinner angleSpinner = new JSpinner();
@@ -70,7 +71,6 @@ public class CarView extends JFrame{
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
 
-
         anglePanel.setLayout(new BorderLayout());
         anglePanel.add(angleLabel, BorderLayout.PAGE_START);
         anglePanel.add(angleSpinner, BorderLayout.PAGE_END);
@@ -103,57 +103,21 @@ public class CarView extends JFrame{
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
 
-        // This actionListener is for the gas button only
-        // TODO: Create more for each component as necessary
+        gasButton.addActionListener(carC.createGasButtonListener());
 
-        gasButton.addActionListener(ActionListener());
+        brakeButton.addActionListener(carC.createBrakeButtonListener());
 
-        brakeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){carC.brake(gasAmount);}
+        turboOnButton.addActionListener(carC.createTurboOnButtonListener());
 
-        });
+        turboOffButton.addActionListener(carC.createTurboOffButtonListener());
 
-        turboOnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.turboOn();
-            }
-        });
+        liftBedButton.addActionListener(carC.createLiftBedButtonListener());
 
-        turboOffButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.turboOff();
-            }
-        });
+        lowerBedButton.addActionListener(carC.createLowerBedButtonListener());
 
-        liftBedButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.liftBed(angleAmount);
-            }
-        });
-
-        lowerBedButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.lowerBed(angleAmount);
-            }
-        });
-
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.start();
-            }
-        });
-        stopButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                carC.stop();
-            }
-        });
+        startButton.addActionListener(carC.createStartButtonListener());
+        
+        stopButton.addActionListener(carC.createStopButtonListener());
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

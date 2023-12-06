@@ -10,14 +10,6 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
-    //UpdateCoordinates updateC;
-
-    Volvo240 volvo;
-    Saab95 saab;
-    Scania scania;
-
-    CarController carC;
-
 
 
     ArrayList<BufferedImage> carImage = new ArrayList<>();

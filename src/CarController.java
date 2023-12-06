@@ -4,6 +4,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.event.ChangeEvent;
+
 
 /*
 * This class represents the Controller part in the MVC pattern.
@@ -13,10 +15,14 @@ import java.util.ArrayList;
 
 public class CarController {
 
-    // member fields:
+    int gasAmount = 0;
+    JSpinner gasSpinner = new JSpinner();
 
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
+    int angleAmount = 0;
+    JSpinner angleSpinner = new JSpinner();
+
+
+
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     //private Timer timer = new Timer(delay, new TimerListener());
@@ -25,6 +31,9 @@ public class CarController {
     World world;
 
     ArrayList<Car> cars = new ArrayList<>();
+
+    ActionListener actionListenerGasButton = createGasButtonListener();
+
 
     public CarController() {
         cars.add(new Volvo240());
@@ -56,8 +65,12 @@ public ArrayList<Car> getTheCars(){
         angleSpinner = new JSpinner(spinnerModelAngle);
         }
 
-    ChangeListener createGasSpinnerListener(){
-
+    ChangeListener createGasSpinnerListener() {
+        return new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
+            }
+        };
     }
 
     ChangeListener createAngleSpinnerListener() {
