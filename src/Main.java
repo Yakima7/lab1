@@ -12,4 +12,6 @@ public class Main {
 
     }
 
+    public CarController getCarController(){return cc;}
+
 }

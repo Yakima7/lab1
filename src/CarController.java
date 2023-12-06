@@ -30,35 +30,31 @@ public class CarController {
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
-        timer.start();
-        this.frame = frame;
-        frame.add(actionlistener);
     }
 
 
+public ArrayList<Car> getTheCars(){
+    cars.add(new Volvo240());
+    cars.add(new Saab95());
+    cars.add(new Scania());
+        return cars;}
 
 
-    /* Each step the TimerListener moves all the cars in the list and tells the
-    * view to update its images. Change this method to your needs.
-    * */
-    private class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
-                int xCoord=car.getXcoord();
-                int yCoord=car.getYcoord();
-                if ( yCoord<0 || yCoord>500 || xCoord<0 || xCoord>700 ){
-                    car.turnAround();}
-                car.move();
-                int x = (int) Math.round(car.getXcoord());
-                int y = (int) Math.round(car.getYcoord());
-                car.setXcoord(x);
-                car.setYcoord(y);
-                //updateC.moveit(x, y, car.getModelName());
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-            }
+    public void createSpinners(){
+    SpinnerModel spinnerModel =
+            new SpinnerNumberModel(0, //initial value
+                    0, //min
+                    100, //max
+                    1);//step
+    gasSpinner = new JSpinner(spinnerModel);
+
+    SpinnerModel spinnerModelAngle =
+                new SpinnerNumberModel(0, //initial value
+                        0, //min
+                        70, //max
+                        1);//step
+        angleSpinner = new JSpinner(spinnerModelAngle);
         }
-    }
 
     ChangeListener createGasSpinnerListener(){
 

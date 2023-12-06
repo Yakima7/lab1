@@ -63,29 +63,8 @@ public class CarView extends JFrame{
 
         this.add(drawPanel);
 
-        SpinnerModel spinnerModel =
-                new SpinnerNumberModel(0, //initial value
-                        0, //min
-                        100, //max
-                        1);//step
-        gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
-            }
-        });
-
-        SpinnerModel spinnerModelAngle =
-                new SpinnerNumberModel(0, //initial value
-                        0, //min
-                        70, //max
-                        1);//step
-        angleSpinner = new JSpinner(spinnerModelAngle);
-        angleSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent a) {
-                angleAmount = (int) ((JSpinner)a.getSource()).getValue();
-            }
-        });
+        gasSpinner.addChangeListener(carC.createGasSpinnerListener());
+        angleSpinner.addChangeListener(carC.createAngleSpinnerListener());
 
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
