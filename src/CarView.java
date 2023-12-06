@@ -19,9 +19,7 @@ public class CarView extends JFrame{
     private static final int Y = 800;
 
     // The controller member
-    ButtonMethods buttonM;
     CarController carC;
-
 
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
@@ -40,7 +38,7 @@ public class CarView extends JFrame{
 
 
 
-    static JButton gasButton = new JButton("Gas");
+    JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
     JButton turboOnButton = new JButton("Saab Turbo on");
     JButton turboOffButton = new JButton("Saab Turbo off");
@@ -71,7 +69,7 @@ public class CarView extends JFrame{
                         100, //max
                         1);//step
         gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(new ChangeListener() {
+        gasSpinner.addChangeListener(ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 gasAmount = (int) ((JSpinner)e.getSource()).getValue();
             }

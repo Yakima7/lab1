@@ -1,5 +1,6 @@
 package src;
 import javax.swing.*;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -23,26 +24,18 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
 
-    UpdateCoordinates updateC;
-    // A list of cars, modify if needed
     ArrayList<Car> cars = new ArrayList<>();
 
-    //methods:
-
-    public static void main(String[] args) {
-        // Instance of this class
-        CarController cc = new CarController();
-
-        cc.cars.add(new Volvo240());
-        cc.cars.add(new Saab95());
-        cc.cars.add(new Scania());
-
-        // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
-
-        // Start the timer
-        cc.timer.start();
+    public CarController(CarView frame){
+        cars.add(new Volvo240());
+        cars.add(new Saab95());
+        cars.add(new Scania());
+        timer.start();
+        this.frame = frame;
+        frame.add(actionlistener);
     }
+
+
 
 
     /* Each step the TimerListener moves all the cars in the list and tells the
@@ -58,11 +51,25 @@ public class CarController {
                 car.move();
                 int x = (int) Math.round(car.getXcoord());
                 int y = (int) Math.round(car.getYcoord());
-                updateC.moveit(x, y, car.getModelName());
+                car.setXcoord(x);
+                car.setYcoord(y);
+                //updateC.moveit(x, y, car.getModelName());
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
         }
+    }
+
+    ChangeListener createGasSpinnerListener(){
+
+    }
+    ActionListener createGasButtonListener(){
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                World.gas(gasAmount);
+            }
+        };
     }
 
 }

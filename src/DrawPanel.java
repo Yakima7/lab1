@@ -10,9 +10,17 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel{
 
-    UpdateCoordinates updateC;
+    //UpdateCoordinates updateC;
 
-    ArrayList<BufferedImage> carImage = new ArrayList<>() ;
+    Volvo240 volvo;
+    Saab95 saab;
+    Scania scania;
+
+    CarController carC;
+
+
+
+    ArrayList<BufferedImage> carImage = new ArrayList<>();
 
 
     // Initializes the panel and reads the images
@@ -21,6 +29,7 @@ public class DrawPanel extends JPanel{
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.green);
+        //updateC = new UpdateCoordinates();
         // Print an error message in case file is not found with a try/catch block
         try {
             carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
@@ -36,8 +45,8 @@ public class DrawPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-            g.drawImage(carImage.get(0), updateC.volvoPoint.x, updateC.volvoPoint.y, null); // see javadoc for more info on the parameters
-            g.drawImage(carImage.get(1), updateC.saabPoint.x, updateC.saabPoint.y, null); // see javadoc for more info on the parameters
-            g.drawImage(carImage.get(2), updateC.scaniaPoint.x, updateC.scaniaPoint.y, null); // see javadoc for more info on the parameters
+            g.drawImage(carImage.get(0), volvo.getXcoord(), volvo.getYcoord(), null); // see javadoc for more info on the parameters
+            g.drawImage(carImage.get(1), saab.getXcoord(), saab.getYcoord(), null); // see javadoc for more info on the parameters
+            g.drawImage(carImage.get(2), scania.getXcoord(), scania.getYcoord(), null); // see javadoc for more info on the parameters
     }
 }
