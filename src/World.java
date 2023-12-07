@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class World {
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -13,6 +14,7 @@ public class World {
     CarView frame;
 
     //ArrayList<Car> theCars = CarController.getTheCars(); //test men problem
+    //ArrayList<Car> theCars = Main.getCarController();
 
     public Timer timer = new Timer(delay, new TimerListener());
 
@@ -60,6 +62,33 @@ public class World {
             car.stopEngine();
         }
     }
+
+
+//TODO:preleminär add och remove car metoder
+    /*void addCar(){
+    Arraylist<Car>typesOfCar = new Arraylist<>();
+    typesOfCar.add("Volvo240");
+    typesOfCar.add("Saab95");
+    typesOfCar.add("Scania");
+    nrOfCars=cars.size();
+    int indexNr = nextInt(nrOfCars);
+    String modelToBeAdded = typesOfCar.get(indexNr); Slumpa fram en bil model
+
+    lastCar=cars.get(cars.size() - 1);
+    x=lastCar.getXCoord();
+    x+=100; Ta fram koordinater från bil längst ned+100
+
+    cars.add(modelToBeAdded);
+    newCar=cars.get(cars.size() - 1);
+    newCar.setXCoord(x); Lägg till bilen och sätt dess koordinter
+    }
+
+    void removeCar(){
+    indexNr=cars.get(cars.size() - 1);
+    cars.remove(indexNr);
+    }*/
+
+
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */

@@ -2,7 +2,7 @@ package src;
 
 public class Main {
 
-CarController cc;
+//CarController cc;
 
     public static void main(String[] args) {
         // Instance of this class
@@ -14,6 +14,6 @@ CarController cc;
         world.timer.start();
     }
 
-    public CarController getCarController(){return cc;}
+    //public CarController getCarController(){return cc;}
 
 }

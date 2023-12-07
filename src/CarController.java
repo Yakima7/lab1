@@ -30,11 +30,9 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     World world;
 
-    ArrayList<Car> cars = new ArrayList<>();
+    //ArrayList<Car> cars = new ArrayList<>();
 
-    ActionListener actionListenerGasButton = createGasButtonListener();
-
-
+/*
     public CarController() {
         cars.add(new Volvo240());
         cars.add(new Saab95());
@@ -42,11 +40,7 @@ public class CarController {
     }
 
 
-public ArrayList<Car> getTheCars(){
-    cars.add(new Volvo240());
-    cars.add(new Saab95());
-    cars.add(new Scania());
-        return cars;}
+//public ArrayList<Car> getTheCars(){return cars;}
 
 
     public void createSpinners(){
