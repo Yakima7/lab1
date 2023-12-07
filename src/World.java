@@ -10,8 +10,18 @@ public class World {
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
 
-    CarController cc;
     CarView frame;
+
+    public World(){
+        cars.add(new Volvo240());
+        cars.add(new Saab95());
+        cars.add(new Scania());
+    }
+
+    public ArrayList<Car> getCars(){
+        return cars;
+    }
+
 
     //ArrayList<Car> theCars = CarController.getTheCars(); //test men problem
     //ArrayList<Car> theCars = Main.getCarController();
@@ -27,18 +37,22 @@ public class World {
 
     void brake(int amount) {
         double brake = ((double) amount)/100;
-        for (Car car : cc.cars){
+        for (Car car : cars){
             car.brake(brake);
         }
     }
 
-    void turboOn(){
-        Saab95 saab = (Saab95) cc.cars.get(1);
-        saab.setTurboOn();
+    void turboOn() {
+        for (Car car : cars) {
+            if(car.getModelName().equals("Saab95")){
+            Saab95 saab = (Saab95) car;
+                saab.setTurboOn();
+            }
+        }
     }
 
     void turboOff(){
-        Saab95 saab = (Saab95) cc.cars.get(1);
+        Saab95 saab = (Saab95) cars.get(1);
         saab.setTurboOff();
     }
 
