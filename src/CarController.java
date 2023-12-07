@@ -38,7 +38,7 @@ public class CarController {
         cars.add(new Saab95());
         cars.add(new Scania());
     }
-
+*/
 
 //public ArrayList<Car> getTheCars(){return cars;}
 

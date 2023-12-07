@@ -12,6 +12,10 @@ public class DrawPanel extends JPanel {
 
     ArrayList<BufferedImage> carImage = new ArrayList<>();
 
+    World world;
+
+    Map<Car, BufferedImage> carPic = new HashMap<>();
+
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
