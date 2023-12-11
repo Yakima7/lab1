@@ -1,8 +1,8 @@
 package src;
 
-import java.awt.event.ActionEvent;
 
+import java.util.ArrayList;
 
 interface Observer_test {
-
+public void UpdateList(ArrayList<Car> cars);
 }

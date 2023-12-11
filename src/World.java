@@ -11,10 +11,13 @@ public class World {
     private final int delay = 50;
 
     CarView frame;
+    DrawPanel drawPanel;
 
     ArrayList<Car> cars = new ArrayList<>();
 
-    public World(){
+    public World(CarView frame, DrawPanel drawPanel){
+        this.frame = frame;
+        this.drawPanel = drawPanel;
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());

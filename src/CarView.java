@@ -21,6 +21,7 @@ public class CarView extends JFrame{
 
     // The controller member
     CarController carC;
+    DrawPanel drawPanel;
 
     JPanel controlPanel = new JPanel();
 
@@ -52,6 +53,9 @@ public class CarView extends JFrame{
     public CarView(String framename, CarController cc, DrawPanel drawPanel){
         this.drawPanel = drawPanel;
         this.carC = cc;
+        //this.setDoubleBuffered(true);
+        this.setPreferredSize(new Dimension(X, Y-240));
+        this.setBackground(Color.green);
         initComponents(framename);
     }
 
