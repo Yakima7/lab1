@@ -85,6 +85,7 @@ public class World {
 
 //TODO:preleminär add och remove car metoder
     /*void addCar(){
+    if(cars.size()<10){
     Arraylist<Car>typesOfCar = new Arraylist<>();
     typesOfCar.add("Volvo240");
     typesOfCar.add("Saab95");
@@ -95,14 +96,18 @@ public class World {
 
     lastCar=cars.get(cars.size() - 1);
     x=lastCar.getXCoord();
-    x+=100; Ta fram koordinater från bil längst ned+100
+    if(x<340*//* preliminärt*//*);{
+    x+=100;} *//*Ta fram koordinater från bil längst ned+100*//*
+    else if(x>=340);{x=0}*//* Loopar inlägningen*//*
 
     cars.add(modelToBeAdded);
     newCar=cars.get(cars.size() - 1);
     newCar.setXCoord(x); Lägg till bilen och sätt dess koordinter
-    }
+    //TODO: updatera grafiken, hur grafiken är uppbyggd måste vetas först då
+    }}
 
     void removeCar(){
+    if(cars.size()!=0){
     indexNr=cars.get(cars.size() - 1);
     cars.remove(indexNr);
     //TODO: updatera grafiken, hur grafiken är uppbyggd måste vetas först då
