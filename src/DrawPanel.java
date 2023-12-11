@@ -8,7 +8,7 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel {
+public class DrawPanel extends JPanel implements Observer_test{
 
     ArrayList<BufferedImage> carImage = new ArrayList<>();
 
@@ -18,12 +18,10 @@ public class DrawPanel extends JPanel {
 
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
-
-
+    public DrawPanel(World world) {
+        this.world = world;
         this.setDoubleBuffered(true);
-        this.setPreferredSize(new Dimension(x, y));
-        this.setBackground(Color.green);
+        //this.setBackground(Color.green);
         //updateC = new UpdateCoordinates();
         // Print an error message in case file is not found with a try/catch block
         try {
@@ -33,9 +31,6 @@ public class DrawPanel extends JPanel {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-
-    public void pairCarWithPic() {
         for (Car car : world.getCars()) {
             if (car.getModelName().equals("Volvo240")) {
                 carPic.put(car, carImage.get(0));
@@ -46,6 +41,10 @@ public class DrawPanel extends JPanel {
             }
         }
     }
+@Override
+public void Update(){
+
+}
 
 
     // This method is called each time the panel updates/refreshes/repaints itself

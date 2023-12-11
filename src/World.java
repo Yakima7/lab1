@@ -102,7 +102,8 @@ public class World {
     void removeCar(){
     indexNr=cars.get(cars.size() - 1);
     cars.remove(indexNr);
-    }*/
+    //TODO: updatera grafiken, hur grafiken är uppbyggd måste vetas först då
+    }}*/
 
 
     /* Each step the TimerListener moves all the cars in the list and tells the
