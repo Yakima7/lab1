@@ -23,17 +23,17 @@ public class CarView extends JFrame implements PaintObserver{
 
     private final JPanel controlPanel = new JPanel();
 
-    JPanel gasPanel = new JPanel();
+    private final JPanel gasPanel = new JPanel();
 
-    JPanel anglePanel = new JPanel();
+    private final JPanel anglePanel = new JPanel();
 
-    JSpinner gasSpinner = new JSpinner();
+    private final JSpinner gasSpinner = new JSpinner();
 
-    JSpinner angleSpinner = new JSpinner();
+    private final JSpinner angleSpinner = new JSpinner();
 
-    JLabel gasLabel = new JLabel("Gas");
+    private final JLabel gasLabel = new JLabel("Gas");
 
-    JLabel angleLabel = new JLabel("Angle");
+    private final JLabel angleLabel = new JLabel("Angle");
 
 
 
@@ -51,9 +51,6 @@ public class CarView extends JFrame implements PaintObserver{
     public CarView(String framename, CarController cc, DrawPanel drawPanel){
         this.drawPanel = drawPanel;
         this.carC = cc;
-        //this.setDoubleBuffered(true);
-        this.setPreferredSize(new Dimension(X, Y-240));
-        this.setBackground(Color.green);
         initComponents(framename);
     }
     @Override

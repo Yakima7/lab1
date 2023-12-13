@@ -10,7 +10,7 @@ public class World {
     private final int delay = 50;
 
     CarView frame;
-    DrawPanel drawPanel;
+    //DrawPanel drawPanel;
 
     ArrayList<Car> cars = new ArrayList<>();
 
@@ -20,11 +20,14 @@ public class World {
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
+        notifyCarListObservers();
     }
 
-    public ArrayList<Car> getCars(){
+    /*public ArrayList<Car> getCars(){
         return cars;
     }
+
+     */
 
     private ArrayList<CarListObserver> carListeners = new ArrayList<>();
 

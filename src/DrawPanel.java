@@ -13,8 +13,6 @@ public class DrawPanel extends JPanel implements CarListObserver {
     private static final int Y = 800;
     ArrayList<BufferedImage> carImage = new ArrayList<>();
 
-    World world;
-
     Map<Car, BufferedImage> carPic = new HashMap<>();
 
     public int getX(){
@@ -25,11 +23,10 @@ public class DrawPanel extends JPanel implements CarListObserver {
     }
 
     // Initializes the panel and reads the images
-    public DrawPanel(World world) {
-        this.world = world;
+    public DrawPanel() {
         this.setDoubleBuffered(true);
-        //this.setBackground(Color.green);
-        //updateC = new UpdateCoordinates();
+        this.setPreferredSize(new Dimension(X, Y-240));
+        this.setBackground(Color.green);
         // Print an error message in case file is not found with a try/catch block
         try {
             carImage.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
@@ -38,15 +35,7 @@ public class DrawPanel extends JPanel implements CarListObserver {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        for (Car car : world.getCars()) {
-            if (car.getModelName().equals("Volvo240")) {
-                carPic.put(car, carImage.get(0));
-            } else if (car.getModelName().equals("Saab95")) {
-                carPic.put(car, carImage.get(1));
-            } else if (car.getModelName().equals("Scania")) {
-                carPic.put(car, carImage.get(2));
-            }
-        }
+
     }
     @Override
     public void update(ArrayList<Car> cars){

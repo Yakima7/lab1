@@ -15,11 +15,12 @@ import javax.swing.event.ChangeEvent;
 
 public class CarController {
 
-    int gasAmount = 0;
+    private int gasAmount = 0;
     JSpinner gasSpinner = new JSpinner();
 
-    int angleAmount = 0;
+    private int angleAmount = 0;
     JSpinner angleSpinner = new JSpinner();
+
 
 
 
