@@ -11,6 +11,7 @@ public class Main{
         World world = new World();
         DrawPanel drawPanel = new DrawPanel();
         world.addCarListObserver(drawPanel);
+        world.notifyCarListObservers();
         //world.addCarListObserver(world.timer);
         CarView frame = new CarView("CarSim 1.0", drawPanel, world);
         CarController cc = new CarController(frame);
