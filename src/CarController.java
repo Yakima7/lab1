@@ -30,15 +30,12 @@ public class CarController {
     // The frame that represents this instance View of the MVC pattern
     World world;
 
-    //ArrayList<Car> cars = new ArrayList<>();
 
-/*
-    public CarController() {
-        cars.add(new Volvo240());
-        cars.add(new Saab95());
-        cars.add(new Scania());
+
+    public CarController(World world) {
+        this.world = world;
     }
-*/
+
 
 //public ArrayList<Car> getTheCars(){return cars;}
 

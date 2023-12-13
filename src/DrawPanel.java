@@ -8,14 +8,21 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel implements Observer_test{
-
+public class DrawPanel extends JPanel implements CarListObserver {
+    private static final int X = 800;
+    private static final int Y = 800;
     ArrayList<BufferedImage> carImage = new ArrayList<>();
 
     World world;
 
     Map<Car, BufferedImage> carPic = new HashMap<>();
 
+    public int getX(){
+        return X;
+    }
+    public int getY(){
+        return Y;
+    }
 
     // Initializes the panel and reads the images
     public DrawPanel(World world) {
@@ -41,11 +48,18 @@ public class DrawPanel extends JPanel implements Observer_test{
             }
         }
     }
-@Override
-public void Update(){
-
-}
-
+    @Override
+    public void update(ArrayList<Car> cars){
+        for (Car car : cars) {
+            if (car.getModelName().equals("Volvo240")) {
+                carPic.put(car, carImage.get(0));
+            } else if (car.getModelName().equals("Saab95")) {
+                carPic.put(car, carImage.get(1));
+            } else if (car.getModelName().equals("Scania")) {
+                carPic.put(car, carImage.get(2));
+            }
+        }
+    }
 
     // This method is called each time the panel updates/refreshes/repaints itself
     @Override

@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class World {
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -15,9 +14,9 @@ public class World {
 
     ArrayList<Car> cars = new ArrayList<>();
 
-    public World(CarView frame, DrawPanel drawPanel){
-        this.frame = frame;
-        this.drawPanel = drawPanel;
+    public World(/*CarView frame, DrawPanel drawPanel*/){
+        //this.frame = frame;
+        //this.drawPanel = drawPanel;
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
@@ -25,6 +24,38 @@ public class World {
 
     public ArrayList<Car> getCars(){
         return cars;
+    }
+
+    private ArrayList<CarListObserver> carListeners = new ArrayList<>();
+
+    public void addCarListObserver(CarListObserver carListener) {
+        this.carListeners.add(carListener);
+    }
+
+    public void removeCarListObserver(CarListObserver carListener) {
+        this.carListeners.remove(carListener);
+    }
+
+    public void notifyCarListObservers() {
+        for (CarListObserver listener : this.carListeners) {
+            listener.update(this.cars);
+        }
+    }
+
+    private ArrayList<PaintObserver> paintListeners = new ArrayList<>();
+
+    public void addPaintObserver(PaintObserver paintListener) {
+        this.paintListeners.add(paintListener);
+    }
+
+    public void removePaintObserver(PaintObserver paintListener) {
+        this.paintListeners.remove(paintListener);
+    }
+
+    public void notifyPaintObservers() {
+        for (PaintObserver paintListener : this.paintListeners) {
+            paintListener.updatePaint();
+        }
     }
 
 
@@ -82,6 +113,33 @@ public class World {
         }
     }
 
+    public class TimerListener implements ActionListener{
+        //private ArrayList<Car> cars;
+/*
+        public TimerListener() {
+
+        }
+        @Override
+        public void update(ArrayList<Car> cars) {
+            this.cars = cars;
+        }
+*/
+        public void actionPerformed(ActionEvent e) {
+            for (Car car : cars) {
+                int xCoord = car.getXcoord();
+                int yCoord = car.getYcoord();
+                if (yCoord < 0 || yCoord > 500 || xCoord < 0 || xCoord > 700) {
+                    car.turnAround();
+                }
+                car.move();
+                int x = (int) Math.round(car.getXcoord());
+                int y = (int) Math.round(car.getYcoord());
+                car.setXcoord(x);
+                car.setYcoord(y);
+                notifyPaintObservers();
+            }
+        }
+    }
 
 //TODO:preleminär add och remove car metoder
     /*void addCar(){
@@ -118,23 +176,5 @@ public class World {
      * view to update its images. Change this method to your needs.
      * */
 
-    public class TimerListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
-                int xCoord = car.getXcoord();
-                int yCoord = car.getYcoord();
-                if (yCoord < 0 || yCoord > 500 || xCoord < 0 || xCoord > 700) {
-                    car.turnAround();
-                }
-                car.move();
-                int x = (int) Math.round(car.getXcoord());
-                int y = (int) Math.round(car.getYcoord());
-                car.setXcoord(x);
-                car.setYcoord(y);
-                //updateC.moveit(x, y, car.getModelName());
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-            }
-        }
-    }
+
 }
