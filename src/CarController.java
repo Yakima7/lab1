@@ -14,12 +14,7 @@ import javax.swing.event.ChangeEvent;
  */
 
 public class CarController {
-
-    private int gasAmount = 0;
-    JSpinner gasSpinner = new JSpinner();
-
-    private int angleAmount = 0;
-    JSpinner angleSpinner = new JSpinner();
+    CarView frame;
 
 
 
@@ -29,108 +24,32 @@ public class CarController {
     //private Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
-    World world;
 
 
-
-    public CarController(World world) {
-        this.world = world;
+    public CarController(CarView frame) {
+        this.frame = frame;
     }
 
 
 //public ArrayList<Car> getTheCars(){return cars;}
 
 
-    public void createSpinners(){
-    SpinnerModel spinnerModel =
-            new SpinnerNumberModel(0, //initial value
-                    0, //min
-                    100, //max
-                    1);//step
-    gasSpinner = new JSpinner(spinnerModel);
 
-    SpinnerModel spinnerModelAngle =
-                new SpinnerNumberModel(0, //initial value
-                        0, //min
-                        70, //max
-                        1);//step
-        angleSpinner = new JSpinner(spinnerModelAngle);
-        }
+        frame.gasButton.addActionListener(createGasButtonListener());
 
-    ChangeListener createGasSpinnerListener() {
-        return new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
-            }
-        };
-    }
+        brakeButton.addActionListener(createBrakeButtonListener());
 
-    ChangeListener createAngleSpinnerListener() {
-        return new ChangeListener() {
-            public void stateChanged(ChangeEvent a) {
-                angleAmount = (int) ((JSpinner) a.getSource()).getValue();
-            }
-        };
-    }
+        turboOnButton.addActionListener(createTurboOnButtonListener());
 
-    ActionListener createGasButtonListener() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                world.gas(gasAmount);
-            }
-        };
-    }
+        turboOffButton.addActionListener(createTurboOffButtonListener());
 
-    ActionListener createBrakeButtonListener(){
-        return new ActionListener() {
-            @Override
-            public void actionPerformed (ActionEvent e){world.brake(gasAmount);}
-        };
-    }
+        liftBedButton.addActionListener(createLiftBedButtonListener());
 
-    ActionListener createTurboOnButtonListener(){
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {world.turboOn();}
-            };
-        }
+        lowerBedButton.addActionListener(createLowerBedButtonListener());
 
-        ActionListener createTurboOffButtonListener(){
-        return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {world.turboOff();}
-            };
-        }
+        startButton.addActionListener(createStartButtonListener());
 
-        ActionListener createLiftBedButtonListener(){
-                return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {world.liftBed(angleAmount);}
-            };
-        }
-
-        ActionListener createLowerBedButtonListener(){
-    return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                world.lowerBed(angleAmount);}
-            };
-        }
-
-        ActionListener createStartButtonListener(){
-    return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {world.start();}
-            };
-        }
-
-        ActionListener createStopButtonListener(){
-    return new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {world.stop();}
-            };
-        }
+        stopButton.addActionListener(createStopButtonListener());
 }
 
 

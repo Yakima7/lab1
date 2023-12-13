@@ -9,7 +9,7 @@ public class World {
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
 
-    CarView frame;
+    //CarView frame;
     //DrawPanel drawPanel;
 
     ArrayList<Car> cars = new ArrayList<>();
@@ -20,7 +20,7 @@ public class World {
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
-        notifyCarListObservers();
+        //notifyCarListObservers();
     }
 
     /*public ArrayList<Car> getCars(){

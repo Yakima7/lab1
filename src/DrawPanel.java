@@ -54,13 +54,9 @@ public class DrawPanel extends JPanel implements CarListObserver {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (BufferedImage pic : carPic.values()) {
-            for (Car car : carPic.keySet()) {
-                g.drawImage(pic, car.getXcoord(), car.getYcoord(), null);
+        for (Car car : carPic.keySet()) {
+                g.drawImage(carPic.get(car), car.getXcoord(), car.getYcoord(), null);
             }
-            /*g.drawImage(carImage.get(0), getXcoord(), getYcoord(), null); // see javadoc for more info on the parameters
-            g.drawImage(carImage.get(1), getXcoord(), getYcoord(), null); // see javadoc for more info on the parameters
-            g.drawImage(carImage.get(2), getXcoord(), getYcoord(), null); // see javadoc for more info on the parameters*/
-        }
     }
 }
+

@@ -17,49 +17,57 @@ import java.awt.event.ActionListener;
 public class CarView extends JFrame implements PaintObserver{
 
     // The controller member
-    private final CarController carC;
+    //  CarController carC;
 
-    private final DrawPanel drawPanel;
+      DrawPanel drawPanel;
 
-    private final JPanel controlPanel = new JPanel();
+      World world;
 
-    private final JPanel gasPanel = new JPanel();
+      JPanel controlPanel = new JPanel();
 
-    private final JPanel anglePanel = new JPanel();
+      JPanel gasPanel = new JPanel();
 
-    private final JSpinner gasSpinner = new JSpinner();
+      JPanel anglePanel = new JPanel();
 
-    private final JSpinner angleSpinner = new JSpinner();
+      JSpinner gasSpinner = new JSpinner();
 
-    private final JLabel gasLabel = new JLabel("Gas");
+      JSpinner angleSpinner = new JSpinner();
 
-    private final JLabel angleLabel = new JLabel("Angle");
+      JLabel gasLabel = new JLabel("Gas");
 
+      JLabel angleLabel = new JLabel("Angle");
 
+      JButton gasButton = new JButton("Gas");
+      JButton brakeButton = new JButton("Brake");
+      JButton turboOnButton = new JButton("Saab Turbo on");
+      JButton turboOffButton = new JButton("Saab Turbo off");
+      JButton liftBedButton = new JButton("Scania Lift Bed");
+      JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    private final JButton gasButton = new JButton("Gas");
-    private final JButton brakeButton = new JButton("Brake");
-    private final JButton turboOnButton = new JButton("Saab Turbo on");
-    private final JButton turboOffButton = new JButton("Saab Turbo off");
-    private final JButton liftBedButton = new JButton("Scania Lift Bed");
-    private final JButton lowerBedButton = new JButton("Lower Lift Bed");
+      JButton startButton = new JButton("Start all cars");
+      JButton stopButton = new JButton("Stop all cars");
 
-    private final JButton startButton = new JButton("Start all cars");
-    private final JButton stopButton = new JButton("Stop all cars");
+    private int gasAmount = 0;
+    JSpinner gasSpinner = new JSpinner();
+
+    private int angleAmount = 0;
+    JSpinner angleSpinner = new JSpinner();
 
     // Constructor
-    public CarView(String framename, CarController cc, DrawPanel drawPanel){
+    public CarView(String framename, DrawPanel drawPanel, World world){
         this.drawPanel = drawPanel;
-        this.carC = cc;
+        this.world = world;
+        //this.carC = cc;
         initComponents(framename);
     }
     @Override
     public void updatePaint(){
-        drawPanel.repaint();
+        //drawPanel.repaint();
+        drawPanel.paintComponent(drawPanel.getGraphics());
     }
 
     // Sets everything in place and fits everything
-    private void initComponents(String title) {
+     void initComponents(String title) {
 
         this.setTitle(title);
         this.setPreferredSize(new Dimension(drawPanel.getX(), drawPanel.getY()));
@@ -106,22 +114,99 @@ public class CarView extends JFrame implements PaintObserver{
         stopButton.setPreferredSize(new Dimension(drawPanel.getX()/5-15,200));
         this.add(stopButton);
 
-        gasButton.addActionListener(carC.createGasButtonListener());
+         public void createSpinners(){
+             SpinnerModel spinnerModel =
+                     new SpinnerNumberModel(0, //initial value
+                             0, //min
+                             100, //max
+                             1);//step
+             gasSpinner = new JSpinner(spinnerModel);
 
-        brakeButton.addActionListener(carC.createBrakeButtonListener());
+             SpinnerModel spinnerModelAngle =
+                     new SpinnerNumberModel(0, //initial value
+                             0, //min
+                             70, //max
+                             1);//step
+             angleSpinner = new JSpinner(spinnerModelAngle);
+         }
 
-        turboOnButton.addActionListener(carC.createTurboOnButtonListener());
 
-        turboOffButton.addActionListener(carC.createTurboOffButtonListener());
 
-        liftBedButton.addActionListener(carC.createLiftBedButtonListener());
 
-        lowerBedButton.addActionListener(carC.createLowerBedButtonListener());
+         ChangeListener createGasSpinnerListener() {
+             return new ChangeListener() {
+                 public void stateChanged(ChangeEvent e) {
+                     gasAmount = (int) ((JSpinner) e.getSource()).getValue();
+                 }
+             };
+         }
 
-        startButton.addActionListener(carC.createStartButtonListener());
-        
-        stopButton.addActionListener(carC.createStopButtonListener());
+         ChangeListener createAngleSpinnerListener() {
+             return new ChangeListener() {
+                 public void stateChanged(ChangeEvent a) {
+                     angleAmount = (int) ((JSpinner) a.getSource()).getValue();
+                 }
+             };
+         }
 
+         ActionListener createGasButtonListener() {
+             return new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {
+                     world.gas(gasAmount);
+                 }
+             };
+         }
+
+         ActionListener createBrakeButtonListener(){
+             return new ActionListener() {
+                 @Override
+                 public void actionPerformed (ActionEvent e){world.brake(gasAmount);}
+             };
+         }
+
+         ActionListener createTurboOnButtonListener(){
+             return new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {world.turboOn();}
+             };
+         }
+
+         ActionListener createTurboOffButtonListener(){
+             return new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {world.turboOff();}
+             };
+         }
+
+         ActionListener createLiftBedButtonListener(){
+             return new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {world.liftBed(angleAmount);}
+             };
+         }
+
+         ActionListener createLowerBedButtonListener(){
+             return new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {
+                     world.lowerBed(angleAmount);}
+             };
+         }
+
+         ActionListener createStartButtonListener(){
+             return new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {world.start();}
+             };
+         }
+
+         ActionListener createStopButtonListener(){
+             return new ActionListener() {
+                 @Override
+                 public void actionPerformed(ActionEvent e) {world.stop();}
+             };
+         }
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 
