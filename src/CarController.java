@@ -46,7 +46,6 @@ public class CarController{
             @Override
             public void actionPerformed(ActionEvent e) {
                 world.gas(gasAmount);
-                System.out.println(gasAmount);
             }
         });
 
