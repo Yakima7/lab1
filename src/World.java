@@ -115,7 +115,8 @@ public class World {
             car.stopEngine();
         }
     }
-
+    // The timer is started with a listener (see below) that executes the statements
+    // each step between delays.
     public class TimerListener implements ActionListener{
         //private ArrayList<Car> cars;
 /*

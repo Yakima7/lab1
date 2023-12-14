@@ -13,14 +13,12 @@ import javax.swing.event.ChangeEvent;
 * modifying the model state and the updating the view.
  */
 
-public class CarController {
+public class CarController{
     CarView frame;
+    World world;
+    private int gasAmount = 0;
+    private int angleAmount = 0;
 
-
-
-
-    // The timer is started with a listener (see below) that executes the statements
-    // each step between delays.
     //private Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
@@ -30,26 +28,100 @@ public class CarController {
         this.frame = frame;
     }
 
+    public void actionListeners() {
+        frame.gasSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
+            }
+        });
+        frame.angleSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent a) {
+                angleAmount = (int) ((JSpinner) a.getSource()).getValue();
+            }
+        });
 
-//public ArrayList<Car> getTheCars(){return cars;}
+        frame.gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //world.gas(gasAmount);
+                System.out.println(gasAmount);
+            }
+        });
 
+        frame.brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.brake(gasAmount);
+            }
+        });
 
+        frame.turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.turboOn();
+            }
+        });
 
-        frame.gasButton.addActionListener(createGasButtonListener());
+        frame.turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.turboOff();
+            }
+        });
 
-        brakeButton.addActionListener(createBrakeButtonListener());
+        frame.liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.liftBed(angleAmount);
+            }
+        });
+
+        frame.lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.lowerBed(angleAmount);
+            }
+        });
+
+        frame.startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.start();
+            }
+        });
+        frame.stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.stop();
+            }
+        });
+
+    }
+/*
+
+    public void actionListeners() {
+        frame.gasButton.addActionListener(frame.createGasButtonListener());
+
+        frame.brakeButton.addActionListener(frame.createBrakeButtonListener());
 
         turboOnButton.addActionListener(createTurboOnButtonListener());
 
-        turboOffButton.addActionListener(createTurboOffButtonListener());
+        frame.turboOffButton.addActionListener(frame.createTurboOffButtonListener());
 
-        liftBedButton.addActionListener(createLiftBedButtonListener());
+        frame.liftBedButton.addActionListener(frame.createLiftBedButtonListener());
 
-        lowerBedButton.addActionListener(createLowerBedButtonListener());
+        frame.lowerBedButton.addActionListener(frame.createLowerBedButtonListener());
 
-        startButton.addActionListener(createStartButtonListener());
+        frame.startButton.addActionListener(frame.createStartButtonListener());
 
-        stopButton.addActionListener(createStopButtonListener());
+        frame.stopButton.addActionListener(frame.createStopButtonListener());
+
+        frame.gasSpinner.addChangeListener(frame.createGasSpinnerListener());
+
+        frame.angleSpinner.addChangeListener(frame.createAngleSpinnerListener());
+    }
+
+ */
 }
 
 
