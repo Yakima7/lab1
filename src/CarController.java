@@ -23,9 +23,11 @@ public class CarController{
 
     // The frame that represents this instance View of the MVC pattern
 
-
-    public CarController(CarView frame) {
+    public CarController(CarView frame, World world)  {
         this.frame = frame;
+        this.world = world;
+        actionListeners();
+
     }
 
     public void actionListeners() {
@@ -104,7 +106,7 @@ public class CarController{
 
         frame.brakeButton.addActionListener(frame.createBrakeButtonListener());
 
-        turboOnButton.addActionListener(createTurboOnButtonListener());
+        frame.turboOnButton.addActionListener(frame.createTurboOnButtonListener());
 
         frame.turboOffButton.addActionListener(frame.createTurboOffButtonListener());
 
