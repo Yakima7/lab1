@@ -45,7 +45,7 @@ public class CarController{
         frame.gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //world.gas(gasAmount);
+                world.gas(gasAmount);
                 System.out.println(gasAmount);
             }
         });

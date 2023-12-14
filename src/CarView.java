@@ -57,13 +57,7 @@ public class CarView extends JFrame implements PaintObserver{
 
          this.add(drawPanel);
 
-         gasPanel.setLayout(new BorderLayout());
-         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
-         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
 
-         anglePanel.setLayout(new BorderLayout());
-         anglePanel.add(angleLabel, BorderLayout.PAGE_START);
-         anglePanel.add(angleSpinner, BorderLayout.PAGE_END);
 
          this.add(anglePanel);
          this.add(gasPanel);
@@ -100,7 +94,14 @@ public class CarView extends JFrame implements PaintObserver{
                          70, //max
                          1);//step
          angleSpinner = new JSpinner(spinnerModelAngle);
+         gasPanel.setLayout(new BorderLayout());
+         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
+         gasPanel.add(gasSpinner, BorderLayout.PAGE_END);
 
+
+         anglePanel.setLayout(new BorderLayout());
+         anglePanel.add(angleLabel, BorderLayout.PAGE_START);
+         anglePanel.add(angleSpinner, BorderLayout.PAGE_END);
          this.pack();
 
          // Get the computer screen resolution
