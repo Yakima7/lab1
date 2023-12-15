@@ -115,6 +115,19 @@ public class World {
             car.stopEngine();
         }
     }
+
+    void addCar() {
+        if (cars.size() < 10) {
+        }
+    }
+
+    void removeCar(){
+        if(!cars.isEmpty()){
+            cars.remove(cars.size()-1);
+            //Funkar, men bilden måste tas bort
+        }
+    }
+
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     public class TimerListener implements ActionListener{

@@ -33,6 +33,9 @@ public class CarView extends JFrame implements PaintObserver{
     JButton lowerBedButton = new JButton("Lower Lift Bed");
     JButton startButton = new JButton("Start all cars");
     JButton stopButton = new JButton("Stop all cars");
+    JButton addCarButton = new JButton("Add car");
+    JButton removeCarButton = new JButton("Remove car");
+
     //private int gasAmount = 0;
     //private int angleAmount = 0;
     // Constructor
@@ -69,6 +72,8 @@ public class CarView extends JFrame implements PaintObserver{
          controlPanel.add(brakeButton, 3);
          controlPanel.add(turboOffButton, 4);
          controlPanel.add(lowerBedButton, 5);
+         controlPanel.add(addCarButton, 6);
+         controlPanel.add(removeCarButton, 7);
          controlPanel.setPreferredSize(new Dimension((drawPanel.getX() / 2), 200));
          this.add(controlPanel);
          controlPanel.setBackground(Color.CYAN);

@@ -97,6 +97,23 @@ public class CarController{
             }
         });
 
+
+        frame.addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.addCar();
+            }
+        });
+
+        frame.removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.removeCar();
+            }
+        });
+
+
+
     }
 /*
 
