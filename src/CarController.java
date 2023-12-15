@@ -50,6 +50,10 @@ public class CarController{
         frame.gasSpinner.addChangeListener(frame.createGasSpinnerListener());
 
         frame.angleSpinner.addChangeListener(frame.createAngleSpinnerListener());
+
+        frame.addCarButton.addActionListener(frame.createAddCarButtonListener());
+
+        frame.removeCarButton.addActionListener(frame.createRemoveCarButtonListener());
     }
 
 

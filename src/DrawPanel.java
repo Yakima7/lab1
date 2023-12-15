@@ -8,7 +8,7 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel implements CarListObserver{
+public class DrawPanel extends JPanel implements CarListObserver, RemoveCarObserver{
     private static final int X = 800;
     private static final int Y = 800;
     ArrayList<BufferedImage> carImage = new ArrayList<>();

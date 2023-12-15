@@ -14,6 +14,9 @@ public class World {
 
     ArrayList<Car> cars = new ArrayList<>();
 
+    ArrayList<Car> removeCars = new ArrayList<>();
+
+
     public World(/*CarView frame, DrawPanel drawPanel*/){
         //this.frame = frame;
         //this.drawPanel = drawPanel;
@@ -38,6 +41,7 @@ public class World {
     public void removeCarListObserver(CarListObserver carListener) {
         this.carListeners.remove(carListener);
     }
+
 
     public void notifyCarListObservers() {
         for (CarListObserver listener : this.carListeners) {
