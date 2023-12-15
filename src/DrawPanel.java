@@ -50,6 +50,12 @@ public class DrawPanel extends JPanel implements CarListObserver{
         }
     }
 
+    @Override
+    public void removeCar(ArrayList<Car>cars){
+        Car car = cars.getLast();
+        carPic.remove(car);
+    }
+
     // This method is called each time the panel updates/refreshes/repaints itself
     @Override
     protected void paintComponent(Graphics g) {

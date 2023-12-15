@@ -45,6 +45,22 @@ public class World {
         }
     }
 
+    private ArrayList<RemoveCarObserver> removeCarListener = new ArrayList<>();
+
+    public void addRemoveCarObserver(RemoveCarObserver removeCarListener){
+        this.removeCarListener.add(removeCarListener);
+    }
+
+    public void removeRemoveCarObserver(RemoveCarObserver removeCarListener){
+        this.removeCarListener.remove(removeCarListener);
+    }
+
+    public void notifyRemoveCarObservers(ArrayList<Car>cars){
+        for (RemoveCarObserver listener : this.removeCarListener) {
+            listener.removeCar(cars);
+        }
+    }
+
     private ArrayList<PaintObserver> paintListeners = new ArrayList<>();
 
     public void addPaintObserver(PaintObserver paintListener) {
@@ -122,11 +138,11 @@ public class World {
     }
 
     void removeCar(){
-        if(!cars.isEmpty()){
-            cars.remove(cars.size()-1);
-            //Funkar, men bilden måste tas bort
-        }
+        notifyRemoveCarObservers(cars);
+        cars.remove(cars.getLast());
+
     }
+
 
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.

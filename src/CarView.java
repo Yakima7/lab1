@@ -36,8 +36,8 @@ public class CarView extends JFrame implements PaintObserver{
     JButton addCarButton = new JButton("Add car");
     JButton removeCarButton = new JButton("Remove car");
 
-    //private int gasAmount = 0;
-    //private int angleAmount = 0;
+    private int gasAmount = 0;
+    private int angleAmount = 0;
     // Constructor
     public CarView(String framename, DrawPanel drawPanel, World world){
         this.drawPanel = drawPanel;
@@ -118,7 +118,7 @@ public class CarView extends JFrame implements PaintObserver{
          // Make sure the frame exits when "x" is pressed
          this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      }
-/*
+
     ChangeListener createGasSpinnerListener() {
         return new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
@@ -139,8 +139,7 @@ public class CarView extends JFrame implements PaintObserver{
         return new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //world.gas(gasAmount);
-                System.out.println(gasAmount);
+                world.gas(gasAmount);
             }
         };
     }
@@ -194,6 +193,19 @@ public class CarView extends JFrame implements PaintObserver{
             public void actionPerformed(ActionEvent e) {world.stop();}
         };
     }
-        // Make the frame pack all it's components by respecting the sizes if possible.
-*/
+
+    ActionListener createAddCarButtonListener(){
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {world.addCar();}
+        };
+    }
+
+    ActionListener createRemoveCarButtonListener(){
+        return new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {world.removeCar();}
+        };
+    }
+
 }
