@@ -16,17 +16,10 @@ import javax.swing.event.ChangeEvent;
 public class CarController{
     CarView frame;
     World world;
-    //private int gasAmount = 0;
-    //private int angleAmount = 0;
-
-    //private Timer timer = new Timer(delay, new TimerListener());
-
-    // The frame that represents this instance View of the MVC pattern
 
     public CarController(CarView frame)  {
         this.frame = frame;
         actionListeners();
-
     }
 
 

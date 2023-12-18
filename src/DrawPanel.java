@@ -48,6 +48,7 @@ public class DrawPanel extends JPanel implements CarListObserver, RemoveCarObser
                 carPic.put(car, carImage.get(2));
             }
         }
+        repaint();
     }
 
     @Override

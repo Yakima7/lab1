@@ -14,14 +14,9 @@ public class Main{
         world.addCarListObserver(drawPanel);
         world.notifyCarListObservers();
         world.addRemoveCarObserver(drawPanel);
-        //world.addCarListObserver(world.timer);
         CarView frame = new CarView("CarSim 1.0", drawPanel, world);
         CarController cc = new CarController(frame);
-
         world.addPaintObserver(frame);
-
-        // Instance of this class
-        // Start a new view and send a reference of self
         world.timer.start();
     }
 }
