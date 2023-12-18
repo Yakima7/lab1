@@ -9,28 +9,15 @@ public class World {
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
 
-    //CarView frame;
-    //DrawPanel drawPanel;
-
     ArrayList<Car> cars = new ArrayList<>();
 
-    ArrayList<Car> removeCars = new ArrayList<>();
 
-
-    public World(/*CarView frame, DrawPanel drawPanel*/){
-        //this.frame = frame;
-        //this.drawPanel = drawPanel;
+    public World(){
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
-        //notifyCarListObservers();
     }
 
-    /*public ArrayList<Car> getCars(){
-        return cars;
-    }
-
-     */
 
     private ArrayList<CarListObserver> carListeners = new ArrayList<>();
 
@@ -141,26 +128,17 @@ public class World {
         }
     }
 
-    void removeCar(){
-        notifyRemoveCarObservers(cars);
-        cars.remove(cars.getLast());
-
+    void removeCar() {
+        if (!cars.isEmpty()) {
+            notifyRemoveCarObservers(cars);
+            cars.remove(cars.getLast());
+            notifyPaintObservers();
+        }
     }
-
 
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
     public class TimerListener implements ActionListener{
-        //private ArrayList<Car> cars;
-/*
-        public TimerListener() {
-
-        }
-        @Override
-        public void update(ArrayList<Car> cars) {
-            this.cars = cars;
-        }
-*/
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {
                 int xCoord = car.getXcoord();
