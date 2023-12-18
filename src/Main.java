@@ -8,7 +8,8 @@ import java.util.ArrayList;
 public class Main{
 
     public static void main(String[] args) {
-        World world = new World();
+        CarFactory carFactory = new CarFactory();
+        World world = new World(carFactory);
         DrawPanel drawPanel = new DrawPanel();
         world.addCarListObserver(drawPanel);
         world.notifyCarListObservers();

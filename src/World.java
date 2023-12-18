@@ -8,11 +8,12 @@ import java.util.ArrayList;
 public class World {
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
-
+    CarFactory carFactory;
     ArrayList<Car> cars = new ArrayList<>();
 
 
-    public World(){
+    public World(CarFactory carFactory){
+        this.carFactory = carFactory;
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
@@ -125,6 +126,9 @@ public class World {
 
     void addCar() {
         if (cars.size() < 10) {
+            Car newCar = carFactory.createCar();
+            cars.add(newCar);
+            notifyCarListObservers();
         }
     }
 

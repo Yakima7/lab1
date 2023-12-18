@@ -27,8 +27,8 @@ public class CarView extends JFrame implements PaintObserver{
     JLabel angleLabel = new JLabel("Angle");
     JButton gasButton = new JButton("Gas");
     JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
+    JButton turboOnButton = new JButton("Turbo on Saab");
+    JButton turboOffButton = new JButton("Turbo off Saab");
     JButton liftBedButton = new JButton("Scania Lift Bed");
     JButton lowerBedButton = new JButton("Lower Lift Bed");
     JButton startButton = new JButton("Start all cars");
@@ -60,8 +60,6 @@ public class CarView extends JFrame implements PaintObserver{
 
          this.add(drawPanel);
 
-
-
          this.add(anglePanel);
          this.add(gasPanel);
 
@@ -69,21 +67,21 @@ public class CarView extends JFrame implements PaintObserver{
          controlPanel.add(gasButton, 0);
          controlPanel.add(turboOnButton, 1);
          controlPanel.add(liftBedButton, 2);
-         controlPanel.add(brakeButton, 3);
-         controlPanel.add(turboOffButton, 4);
-         controlPanel.add(lowerBedButton, 5);
-         controlPanel.add(addCarButton, 6);
+         controlPanel.add(addCarButton, 3);
+         controlPanel.add(brakeButton, 4);
+         controlPanel.add(turboOffButton, 5);
+         controlPanel.add(lowerBedButton, 6);
          controlPanel.add(removeCarButton, 7);
-         controlPanel.setPreferredSize(new Dimension((drawPanel.getX() / 2), 200));
+         controlPanel.setPreferredSize(new Dimension((drawPanel.getX() / 2 + 55), 200));
          this.add(controlPanel);
          controlPanel.setBackground(Color.CYAN);
          startButton.setBackground(Color.blue);
          startButton.setForeground(Color.green);
-         startButton.setPreferredSize(new Dimension(drawPanel.getX() / 5 - 15, 200));
+         startButton.setPreferredSize(new Dimension(drawPanel.getX() / 5 - 40, 200));
          this.add(startButton);
          stopButton.setBackground(Color.red);
          stopButton.setForeground(Color.black);
-         stopButton.setPreferredSize(new Dimension(drawPanel.getX() / 5 - 15, 200));
+         stopButton.setPreferredSize(new Dimension(drawPanel.getX() / 5 - 40, 200));
          this.add(stopButton);
 
          SpinnerModel spinnerModel =
