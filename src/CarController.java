@@ -15,7 +15,6 @@ import javax.swing.event.ChangeEvent;
 
 public class CarController{
     CarView frame;
-    World world;
 
     public CarController(CarView frame)  {
         this.frame = frame;

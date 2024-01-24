@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 /**
  * This class represents the full view of the MVC pattern of your car simulator.
- * It initializes with being center on the screen and attaching it's controller in it's state.
+ * It initializes with being center on the screen and attaching its controller in its state.
  * It communicates with the Controller by calling methods of it when an action fires of in
  * each of its components.
  **/
@@ -38,11 +38,9 @@ public class CarView extends JFrame implements PaintObserver{
 
     private int gasAmount = 0;
     private int angleAmount = 0;
-    // Constructor
     public CarView(String framename, DrawPanel drawPanel, World world){
         this.drawPanel = drawPanel;
         this.world = world;
-        //this.carC = cc;
         initComponents(framename);
     }
     @Override
