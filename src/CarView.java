@@ -1,10 +1,7 @@
 package src;
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 
 /**
@@ -36,8 +33,6 @@ public class CarView extends JFrame implements PaintObserver{
     JButton addCarButton = new JButton("Add car");
     JButton removeCarButton = new JButton("Remove car");
 
-    private int gasAmount = 0;
-    private int angleAmount = 0;
     public CarView(String framename, DrawPanel drawPanel, World world){
         this.drawPanel = drawPanel;
         this.world = world;
@@ -45,7 +40,6 @@ public class CarView extends JFrame implements PaintObserver{
     }
     @Override
     public void updatePaint(){
-        //drawPanel.repaint();
         drawPanel.paintComponent(drawPanel.getGraphics());
     }
 

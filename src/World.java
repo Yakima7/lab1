@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class World {
+public class   World {
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
     CarFactory carFactory;
