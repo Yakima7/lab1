@@ -18,6 +18,8 @@ public class World {
         cars.add(new Scania());
     }
 
+    
+
     //Observers
     //CarListObserver
     private ArrayList<CarListObserver> carListeners = new ArrayList<>();
