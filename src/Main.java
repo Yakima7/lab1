@@ -15,7 +15,7 @@ public class Main{
         world.notifyCarListObservers();
         world.addRemoveCarObserver(drawPanel);
         CarView frame = new CarView("CarSim 1.0", drawPanel, world);
-        CarController cc = new CarController(frame);
+        CarController cc = new CarController(frame, world);
         world.addPaintObserver(frame);
         world.timer.start();
     }

@@ -11,7 +11,6 @@ public class World {
     CarFactory carFactory;
     ArrayList<Car> cars = new ArrayList<>();
 
-
     public World(CarFactory carFactory){
         this.carFactory = carFactory;
         cars.add(new Volvo240());
@@ -19,7 +18,8 @@ public class World {
         cars.add(new Scania());
     }
 
-
+    //Observers
+    //CarListObserver
     private ArrayList<CarListObserver> carListeners = new ArrayList<>();
 
     public void addCarListObserver(CarListObserver carListener) {
@@ -36,7 +36,7 @@ public class World {
             listener.update(this.cars);
         }
     }
-
+    //RemoveCarObserver
     private ArrayList<RemoveCarObserver> removeCarListener = new ArrayList<>();
 
     public void addRemoveCarObserver(RemoveCarObserver removeCarListener){
@@ -52,7 +52,7 @@ public class World {
             listener.removeCar(cars);
         }
     }
-
+    //PaintObservers
     private ArrayList<PaintObserver> paintListeners = new ArrayList<>();
 
     public void addPaintObserver(PaintObserver paintListener) {
@@ -69,7 +69,6 @@ public class World {
         }
     }
 
-    public Timer timer = new Timer(delay, new TimerListener());
 
     void gas(int amount) {
         double gas = ((double) amount) / 100;
@@ -135,6 +134,7 @@ public class World {
             notifyPaintObservers();
         }
     }
+    public Timer timer = new Timer(delay, new TimerListener());
 
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.

@@ -15,39 +15,98 @@ import javax.swing.event.ChangeEvent;
 
 public class CarController{
     CarView frame;
+    World world;
+    private int gasAmount = 0;
+    private int angleAmount = 0;
 
-    public CarController(CarView frame)  {
+    public CarController(CarView frame, World world)  {
         this.frame = frame;
+        this.world = world;
         actionListeners();
     }
 
 
     public void actionListeners() {
-        frame.gasButton.addActionListener(frame.createGasButtonListener());
+        frame.gasSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                gasAmount = (int) ((JSpinner) e.getSource()).getValue();
+            }
+        });
+        frame.angleSpinner.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent a) {
+                angleAmount = (int) ((JSpinner) a.getSource()).getValue();
+            }
+        });
 
-        frame.brakeButton.addActionListener(frame.createBrakeButtonListener());
+        frame.gasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.gas(gasAmount);
+            }
+        });
 
-        frame.turboOnButton.addActionListener(frame.createTurboOnButtonListener());
+        frame.brakeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.brake(gasAmount);
+            }
+        });
 
-        frame.turboOffButton.addActionListener(frame.createTurboOffButtonListener());
+        frame.turboOnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.turboOn();
+            }
+        });
 
-        frame.liftBedButton.addActionListener(frame.createLiftBedButtonListener());
+        frame.turboOffButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.turboOff();
+            }
+        });
 
-        frame.lowerBedButton.addActionListener(frame.createLowerBedButtonListener());
+        frame.liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.liftBed(angleAmount);
+            }
+        });
 
-        frame.startButton.addActionListener(frame.createStartButtonListener());
+        frame.lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.lowerBed(angleAmount);
+            }
+        });
 
-        frame.stopButton.addActionListener(frame.createStopButtonListener());
+        frame.startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.start();
+            }
+        });
 
-        frame.gasSpinner.addChangeListener(frame.createGasSpinnerListener());
+        frame.stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.stop();
+            }
+        });
 
-        frame.angleSpinner.addChangeListener(frame.createAngleSpinnerListener());
+        frame.addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.addCar();
+            }
+        });
 
-        frame.addCarButton.addActionListener(frame.createAddCarButtonListener());
-
-        frame.removeCarButton.addActionListener(frame.createRemoveCarButtonListener());
-    }
-
+        frame.removeCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                world.removeCar();
+            }
+        });
 
 }
 
