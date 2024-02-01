@@ -41,70 +41,70 @@ public class CarController{
         frame.gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.gas(gasAmount);
+                methods.gas(gasAmount);
             }
         });
 
         frame.brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.brake(gasAmount);
+                methods.brake(gasAmount);
             }
         });
 
         frame.turboOnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.turboOn();
+                methods.turboOn();
             }
         });
 
         frame.turboOffButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.turboOff();
+                methods.turboOff();
             }
         });
 
         frame.liftBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.liftBed(angleAmount);
+                methods.liftBed(angleAmount);
             }
         });
 
         frame.lowerBedButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.lowerBed(angleAmount);
+                methods.lowerBed(angleAmount);
             }
         });
 
         frame.startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.start();
+                methods.start();
             }
         });
 
         frame.stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.stop();
+                methods.stop();
             }
         });
 
         frame.addCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.addCar();
+                methods.addCar();
             }
         });
 
         frame.removeCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                world.removeCar();
+                methods.removeCar();
             }
         });
 
