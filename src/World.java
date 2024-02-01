@@ -17,43 +17,15 @@ public class   World {
         cars.add(new Scania());
     }
 
-    
-
-    //Observers
-    //CarListObserver
-    private ArrayList<CarListObserver> carListeners = new ArrayList<>();
-
-    public void addCarListObserver(CarListObserver carListener) {
-        this.carListeners.add(carListener);
+    public ArrayList<Car> getList(){
+        return cars;
     }
-
-    public void removeCarListObserver(CarListObserver carListener) {
-        this.carListeners.remove(carListener);
+    public void updateCarList(ArrayList<Car> carList){
+        this.cars = carList;
     }
 
 
-    public void notifyCarListObservers() {
-        for (CarListObserver listener : this.carListeners) {
-            listener.update(this.cars);
-        }
-    }
-    //RemoveCarObserver
-    private ArrayList<RemoveCarObserver> removeCarListener = new ArrayList<>();
-
-    public void addRemoveCarObserver(RemoveCarObserver removeCarListener){
-        this.removeCarListener.add(removeCarListener);
-    }
-
-    public void removeRemoveCarObserver(RemoveCarObserver removeCarListener){
-        this.removeCarListener.remove(removeCarListener);
-    }
-
-    public void notifyRemoveCarObservers(ArrayList<Car>cars){
-        for (RemoveCarObserver listener : this.removeCarListener) {
-            listener.removeCar(cars);
-        }
-    }
-    //PaintObservers
+    //PaintObserver
     private ArrayList<PaintObserver> paintListeners = new ArrayList<>();
 
     public void addPaintObserver(PaintObserver paintListener) {

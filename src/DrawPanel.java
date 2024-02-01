@@ -11,6 +11,7 @@ import javax.swing.*;
 public class DrawPanel extends JPanel implements CarListObserver, RemoveCarObserver, PaintObserver{
     private static final int X = 800;
     private static final int Y = 800;
+
     ArrayList<BufferedImage> carImage = new ArrayList<>();
 
     Map<Car, BufferedImage> carPic = new HashMap<>();
@@ -37,6 +38,7 @@ public class DrawPanel extends JPanel implements CarListObserver, RemoveCarObser
         }
 
     }
+
     @Override
     public void update(ArrayList<Car> cars){
         for (Car car : cars) {

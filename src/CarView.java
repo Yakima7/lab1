@@ -14,7 +14,6 @@ import java.awt.*;
 public class CarView extends JFrame {
     //Creating variables and buttons
     DrawPanel drawPanel;
-    World world;
     JPanel controlPanel = new JPanel();
     JPanel gasPanel = new JPanel();
     JPanel anglePanel = new JPanel();
@@ -36,7 +35,6 @@ public class CarView extends JFrame {
 
     public CarView(String framename, DrawPanel drawPanel){
         this.drawPanel = drawPanel;
-        this.world = world;
         initComponents(framename);
     }
 

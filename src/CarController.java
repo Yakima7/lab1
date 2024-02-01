@@ -19,9 +19,9 @@ public class CarController{
     private int gasAmount = 0;
     private int angleAmount = 0;
 
-    public CarController(CarView frame, World world)  {
+    public CarController(CarView frame, ButtonMethods methods)  {
         this.frame = frame;
-        this.world = world;
+        this.methods = methods;
         actionListeners();
     }
 
