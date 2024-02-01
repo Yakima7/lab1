@@ -15,6 +15,7 @@ import javax.swing.event.ChangeEvent;
 public class CarController{
     CarView frame;
     World world;
+    ButtonMethods methods;
     private int gasAmount = 0;
     private int angleAmount = 0;
 

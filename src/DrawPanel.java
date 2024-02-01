@@ -8,7 +8,7 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel implements CarListObserver, RemoveCarObserver{
+public class DrawPanel extends JPanel implements CarListObserver, RemoveCarObserver, PaintObserver{
     private static final int X = 800;
     private static final int Y = 800;
     ArrayList<BufferedImage> carImage = new ArrayList<>();
@@ -56,7 +56,10 @@ public class DrawPanel extends JPanel implements CarListObserver, RemoveCarObser
         Car car = cars.getLast();
         carPic.remove(car);
     }
-
+    @Override
+    public void updatePaint(){
+        paintComponent(getGraphics());
+    }
     // This method is called each time the panel updates/refreshes/repaints itself
     @Override
     protected void paintComponent(Graphics g) {

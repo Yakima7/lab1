@@ -8,11 +8,10 @@ import java.util.ArrayList;
 public class   World {
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
-    CarFactory carFactory;
+
     ArrayList<Car> cars = new ArrayList<>();
 
-    public World(CarFactory carFactory){
-        this.carFactory = carFactory;
+    public World(){
         cars.add(new Volvo240());
         cars.add(new Saab95());
         cars.add(new Scania());
@@ -71,75 +70,8 @@ public class   World {
         }
     }
 
-
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Car car : cars) {
-            car.gas(gas);
-        }
-    }
-
-    void brake(int amount) {
-        double brake = ((double) amount)/100;
-        for (Car car : cars){
-            car.brake(brake);
-        }
-    }
-
-    void turboOn() {
-        for (Car car : cars) {
-            if(car.getModelName().equals("Saab95")){
-            Saab95 saab = (Saab95) car;
-                saab.setTurboOn();
-            }
-        }
-    }
-
-    void turboOff(){
-        Saab95 saab = (Saab95) cars.get(1);
-        saab.setTurboOff();
-    }
-
-    void liftBed(int angle){
-        Scania scania = (Scania) cars.get(2);
-        scania.changeAngleUp(angle);
-    }
-
-    void lowerBed(int angle){
-        Scania scania = (Scania) cars.get(2);
-        scania.changeAngleDown(angle);
-    }
-
-    void start(){
-        for (Car car : cars){
-            car.startEngine();
-        }
-    }
-    void stop(){
-        for (Car car : cars){
-            car.stopEngine();
-        }
-    }
-
-    void addCar() {
-        if (cars.size() < 10) {
-            Car newCar = carFactory.createCar();
-            cars.add(newCar);
-            notifyCarListObservers();
-        }
-    }
-
-    void removeCar() {
-        if (!cars.isEmpty()) {
-            notifyRemoveCarObservers(cars);
-            cars.remove(cars.getLast());
-            notifyPaintObservers();
-        }
-    }
     public Timer timer = new Timer(delay, new TimerListener());
 
-    // The timer is started with a listener (see below) that executes the statements
-    // each step between delays.
     public class TimerListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             for (Car car : cars) {

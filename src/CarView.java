@@ -11,7 +11,7 @@ import java.awt.*;
  * each of its components.
  **/
 
-public class CarView extends JFrame implements PaintObserver{
+public class CarView extends JFrame {
     //Creating variables and buttons
     DrawPanel drawPanel;
     World world;
@@ -33,14 +33,11 @@ public class CarView extends JFrame implements PaintObserver{
     JButton addCarButton = new JButton("Add car");
     JButton removeCarButton = new JButton("Remove car");
 
-    public CarView(String framename, DrawPanel drawPanel, World world){
+
+    public CarView(String framename, DrawPanel drawPanel){
         this.drawPanel = drawPanel;
         this.world = world;
         initComponents(framename);
-    }
-    @Override
-    public void updatePaint(){
-        drawPanel.paintComponent(drawPanel.getGraphics());
     }
 
     // Sets everything in place and fits everything
